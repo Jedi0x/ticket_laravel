@@ -15,6 +15,7 @@ use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\StatusController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\PrioritiesController;
+use App\Http\Controllers\TicketController;
 use App\Http\Controllers\TypeController;
 
 /*
@@ -79,5 +80,8 @@ Route::group(['middleware' => ['auth']], function () {
 
     Route::resource('type', TypeController::class);
     Route::post('fetch_type',[TypeController::class,'fetch_type_ajax'])->name('type.fetch');
+    
+    Route::resource('ticket', TicketController::class);
+    Route::post('fetch_ticket',[TicketController::class,'fetch_ticket_ajax'])->name('ticket.fetch');
 });
 

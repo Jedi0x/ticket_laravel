@@ -19,6 +19,10 @@ class RoleSeeder extends Seeder
         $administrator_role = Role::on('mysql')->create(['name' => 'admin']);
         $permissions = Permission::on('mysql')->pluck('id','id')->all();
         $administrator_role->syncPermissions($permissions);
+        
+        $customer_role = Role::on('mysql')->create(['name' => 'customer']);
+        $permissions = ['add-ticket','edit-ticket','view-ticket','delete-ticket','add-survey','edit-survey','view-survey','delete-survey','add-contact','edit-contact','view-contact','delete-contact'];
+        $customer_role->syncPermissions($permissions);
 
     }
 }

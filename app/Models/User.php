@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+use App\Models\Ticket;
+use App\Models\Organization;
 use Laravel\Sanctum\HasApiTokens;
 use Spatie\Permission\Traits\HasRoles;
 use Illuminate\Notifications\Notifiable;
@@ -51,5 +53,13 @@ class User extends Authenticatable
     
     public function country(){
         return $this->belongsTo(Country::class, 'country_id');
+    }
+    
+    public function tickets(){
+        return $this->hasMany(Ticket::class);
+    }
+
+    public function organizations() {
+        return $this->hasMany(Organization::class);
     }
 }

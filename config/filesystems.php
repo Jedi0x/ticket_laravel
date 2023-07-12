@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'default' => env('FILESYSTEM_DISK', 'local'),
+    'default' => env('FILESYSTEM_DRIVER', 'local'),
 
     /*
     |--------------------------------------------------------------------------
@@ -42,6 +42,26 @@ return [
             'visibility' => 'public',
         ],
 
+        'file_uploads' => [
+            'driver' => 'local',
+            'root'   => public_path() . '/files',
+        ],
+
+        'image' => [
+            'driver' => 'local',
+            'root'   => public_path() . '/images',
+        ],
+
+        'public_path' => [
+            'driver' => 'local',
+            'root'   => public_path(),
+        ],
+
+        'json' => [
+            'driver' => 'local',
+            'root'   => public_path() . '/json',
+        ],
+
         's3' => [
             'driver' => 's3',
             'key' => env('AWS_ACCESS_KEY_ID'),
@@ -50,7 +70,6 @@ return [
             'bucket' => env('AWS_BUCKET'),
             'url' => env('AWS_URL'),
             'endpoint' => env('AWS_ENDPOINT'),
-            'use_path_style_endpoint' => env('AWS_USE_PATH_STYLE_ENDPOINT', false),
         ],
 
     ],

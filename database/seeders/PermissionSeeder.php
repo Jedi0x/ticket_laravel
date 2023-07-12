@@ -82,6 +82,11 @@ class PermissionSeeder extends Seeder
         Permission::on('mysql')->create(['name'  => 'view-type']);
         Permission::on('mysql')->create(['name'  => 'delete-type']);
         
+        Permission::on('mysql')->create(['name'  => 'add-priority']);
+        Permission::on('mysql')->create(['name'  => 'edit-priority']);
+        Permission::on('mysql')->create(['name'  => 'view-priority']);
+        Permission::on('mysql')->create(['name'  => 'delete-priority']);
+        
         
         Permission::on('mysql')->create(['name'  => 'add-evaluation']);
         Permission::on('mysql')->create(['name'  => 'edit-evaluation']);
