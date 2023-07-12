@@ -257,7 +257,7 @@ var KTModaluserAdd = function () {
             }).then(function (result) {
                 if (result.value) {
                     form.reset(); // Reset form	
-                    window.location.href = "{{ route('user.index') }}"; 			
+                    window.location.href = "{{ route('organization.index') }}"; 			
                 } else if (result.dismiss === 'cancel') {
                     Swal.fire({
                         text: "Your form has not been cancelled!.",

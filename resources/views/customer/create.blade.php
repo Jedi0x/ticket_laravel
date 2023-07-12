@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'Create a new organization')
+@section('title', 'Create a new customer')
 @section('content')
 
 <!--begin::Toolbar-->
@@ -9,7 +9,7 @@
 		<!--begin::Page title-->
 		<div class="page-title d-flex flex-column justify-content-center flex-wrap me-3">
 			<!--begin::Title-->
-			<h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">Create a new organization</h1>
+			<h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">Create a new customer</h1>
 			<!--end::Title-->
 			<!--begin::Breadcrumb-->
 			<ul class="breadcrumb breadcrumb-separatorless fw-semibold fs-7 my-0 pt-1">
@@ -24,7 +24,7 @@
 				</li>
 				<!--end::Item-->
 				<!--begin::Item-->
-				<li class="breadcrumb-item text-muted">Organization</li>
+				<li class="breadcrumb-item text-muted">Customer</li>
 				<!--end::Item-->
 			</ul>
 			<!--end::Breadcrumb-->
@@ -40,23 +40,32 @@
 		<div class="card mb-5 mb-xl-10">
             <div class="card-header border-0">
                 <div class="card-title m-0">
-                    <h3 class="fw-bold m-0">Create a new organization</h3>
+                    <h3 class="fw-bold m-0">Create a new customer</h3>
                 </div>
             </div>
-            <form class="form" action="{{ route('organization.store') }}" method="POST" id="kt_modal_add_user_form">
+            <form class="form" action="{{ route('customer.store') }}" method="POST" id="kt_modal_add_customer_form">
                 @csrf
                 <div class="card-body border-top p-9">
                     <div class="row g-9 mb-7">
                         <div class="col-md-6 fv-row">
-                            <label class="required fs-6 fw-semibold mb-2" for="name">Name</label>
-                            <input class="form-control form-control-solid" type="text" placeholder="Please enter name" name="name" id="name" value="{{ old('name') }}"/>
+                            <label class="required fs-6 fw-semibold mb-2" for="first_name">First name</label>
+                            <input class="form-control form-control-solid" type="text" placeholder="Please enter first name" name="first_name" id="first_name" value="{{ old('first_name') }}"/>
+                        </div>
+                        
+                        <div class="col-md-6 fv-row">
+                            <label class="required fs-6 fw-semibold mb-2" for="last_name">Last name</label>
+                            <input class="form-control form-control-solid" type="text" placeholder="Please enter last name" name="last_name" id="last_name" value="{{ old('last_name') }}"/>
                         </div>
                         
                         <div class="col-md-6 fv-row">
                             <label class="required fs-6 fw-semibold mb-2" for="email">Email</label>
                             <input class="form-control form-control-solid" type="email" placeholder="Please enter email" name="email" id="email" value="{{ old('email') }}"/>
                         </div>
-                    
+                        
+                        <div class="col-md-6 fv-row">
+                            <label class="required fs-6 fw-semibold mb-2" for="password">Password</label>
+                            <input class="form-control form-control-solid" type="password" placeholder="Please enter password" name="password" id="password" />
+                        </div>
                         
                         <div class="col-md-6 fv-row">
                             <label class="required fs-6 fw-semibold mb-2" for="phone">Phone</label>
@@ -75,11 +84,6 @@
                         </div>
                         
                         <div class="col-md-6 fv-row">
-                            <label class="required fs-6 fw-semibold mb-2" for="region">Province/State</label>
-                            <input class="form-control form-control-solid" type="text" placeholder="Please enter province/state" name="region" id="region" value="{{ old('region') }}"/>
-                        </div>
-                        
-                        <div class="col-md-6 fv-row">
                             <label class="required fs-6 fw-semibold mb-2" for="country">Country</label>
                             <select aria-label="Select a country" data-control="select2"  data-placeholder="Select a country"  id="country" name="country" class="form-select form-select-solid fw-bold">
                                 <option value="">Select a country</option>
@@ -89,19 +93,12 @@
                                 
                             </select>
                         </div>
-                        
-                        <div class="col-md-6 fv-row">
-                            <label class="required fs-6 fw-semibold mb-2" for="postal_code">Postal code</label>
-                            <input class="form-control form-control-solid" type="text" placeholder="Please enter postal code" name="postal_code" id="postal_code" value="{{ old('postal_code') }}"/>
-                        </div>
-                        
-                        
                     </div>
                  
                 </div>
                 <div class="card-footer d-flex justify-content-end py-6 px-9">
-                    <button type="reset" class="btn btn-light btn-active-light-primary me-2" id="kt_modal_add_user_cancel">Discard</button>
-                    <button type="submit" id="kt_modal_add_user_submit" class="btn btn-primary">
+                    <button type="reset" class="btn btn-light btn-active-light-primary me-2" id="kt_modal_add_customer_cancel">Discard</button>
+                    <button type="submit" id="kt_modal_add_customer_submit" class="btn btn-primary">
                         <span class="indicator-label">Submit</span>
                         <span class="indicator-progress">Please wait...
                         <span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
@@ -116,7 +113,7 @@
 @push('scripts')
 <script>
 // Class definition
-var KTModaluserAdd = function () {
+var KTModalcustomerAdd = function () {
     var submitButton;
     var cancelButton;
     var validator;
@@ -128,10 +125,17 @@ var KTModaluserAdd = function () {
 			form,
 			{
 				fields: {
-                    name: {
+                    first_name: {
 						validators: {
 							notEmpty: {
-								message: 'The name is required'
+								message: 'The first name is required'
+							}
+						}
+					},
+                    last_name: {
+						validators: {
+							notEmpty: {
+								message: 'The last name is required'
 							}
 						}
 					},
@@ -142,6 +146,17 @@ var KTModaluserAdd = function () {
                             },
                             emailAddress: {
                                 message: 'The email is not a valid email address'
+                            }
+						}
+					},
+                    password: {
+						validators: {
+							notEmpty: {
+								message: 'The password is required'
+							},
+                            stringLength: {
+                                min: 4,
+                                message: "The password must be more than 4 characters"
                             }
 						}
 					},
@@ -178,20 +193,6 @@ var KTModaluserAdd = function () {
 						validators: {
 							notEmpty: {
 								message: 'The country is required'
-							}
-						}
-					},
-                    region: {
-						validators: {
-							notEmpty: {
-								message: 'The province/state is required'
-							}
-						}
-					},
-                    postal_code: {
-						validators: {
-							notEmpty: {
-								message: 'The postal code is required'
 							}
 						}
 					}
@@ -256,7 +257,7 @@ var KTModaluserAdd = function () {
             }).then(function (result) {
                 if (result.value) {
                     form.reset(); // Reset form	
-                    window.location.href = "{{ route('organization.index') }}"; 			
+                    window.location.href = "{{ route('customer.index') }}"; 			
                 } else if (result.dismiss === 'cancel') {
                     Swal.fire({
                         text: "Your form has not been cancelled!.",
@@ -277,9 +278,9 @@ var KTModaluserAdd = function () {
         // Public functions
         init: function () {
             // Elements
-            form = document.querySelector('#kt_modal_add_user_form');
-            submitButton = form.querySelector('#kt_modal_add_user_submit');
-            cancelButton = form.querySelector('#kt_modal_add_user_cancel');
+            form = document.querySelector('#kt_modal_add_customer_form');
+            submitButton = form.querySelector('#kt_modal_add_customer_submit');
+            cancelButton = form.querySelector('#kt_modal_add_customer_cancel');
             handleForm();
         }
     };
@@ -287,7 +288,7 @@ var KTModaluserAdd = function () {
 
 // On document ready
 KTUtil.onDOMContentLoaded(function () {
-	KTModaluserAdd.init();
+	KTModalcustomerAdd.init();
 });
 
 </script>
