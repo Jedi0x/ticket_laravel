@@ -2,10 +2,12 @@
 
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\CustomerController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\EvaluationController;
 use App\Http\Controllers\OrganizationController;
 use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\UserController;
@@ -45,12 +47,18 @@ Route::group(['middleware' => ['auth']], function () {
 
     Route::resource('user', UserController::class);
     Route::post('fetch_user',[UserController::class,'fetch_user_ajax'])->name('user.fetch');
+    
+    Route::resource('customer', CustomerController::class);
+    Route::post('fetch_customer',[CustomerController::class,'fetch_customer_ajax'])->name('customer.fetch');
 
     Route::resource('organization', OrganizationController::class);
     Route::post('fetch_organization',[OrganizationController::class,'fetch_organization_ajax'])->name('organization.fetch');
     
     Route::resource('contact', ContactController::class);
     Route::post('fetch_contact',[ContactController::class,'fetch_contact_ajax'])->name('contact.fetch');
+    
+    Route::resource('evaluation', EvaluationController::class);
+    Route::post('fetch_evaluation',[EvaluationController::class,'fetch_evaluation_ajax'])->name('evaluation.fetch');
 
 });
 
