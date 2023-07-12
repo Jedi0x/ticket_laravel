@@ -89,7 +89,6 @@ class ContactController extends Controller
             ];
             array_push($data, $row);
         }
-
         return [
             "draw" => $request->draw,
             "recordsTotal" => $totalData,

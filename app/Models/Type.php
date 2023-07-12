@@ -10,4 +10,7 @@ class Type extends Model
 {
     use HasFactory, SoftDeletes;
     protected $table = 'types';
+    protected $fillable = [
+        'name',
+    ];
 }
