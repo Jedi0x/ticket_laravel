@@ -10,4 +10,7 @@ class Priority extends Model
 {
     use HasFactory , SoftDeletes;
     protected $table = 'priorities';
+    protected $fillable = [
+        'name',
+    ];
 }
