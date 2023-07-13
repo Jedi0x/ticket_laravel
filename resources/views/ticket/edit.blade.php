@@ -125,7 +125,7 @@
                         
                         <div class="col-md-6 fv-row">
                             <label class="required fs-6 fw-semibold mb-2" for="category_id">Category</label>
-                            <select aria-label="Select a type" data-control="select2"  data-placeholder="Select a category_id"  id="category_id" name="category_id" class="form-select form-select-solid fw-bold">
+                            <select aria-label="Select a type" data-control="select2"  data-placeholder="Select a category"  id="category_id" name="category_id" class="form-select form-select-solid fw-bold">
                                 <option value="">Select a category</option>
                                 @foreach($categories as $category)
                                     <option value="{{ $category->id }}" {{ @$ticket->category->id == $category->id ? 'selected' :'' }}> {{ $category->name }} </option>
@@ -150,10 +150,14 @@
                     <div class="row g-9 mb-7">
                         <div class="col-md-6 fv-row">
                             <table width="100%">
-                                <tr>
+                                <tr id="attachments">
                                     <td width="80%">{{ $attachment->name }} ({{  round($attachment->size / 1024,4).' KB' }})</td>
-                                    <td width="10%">Delete</td>
-                                    <td width="10%">Download</td>
+                                    <td width="10%">
+                                        <a href="javascript:;" class="delete-attachment" data-delete-attachment = "{{ $attachment->id }}" data-bs-toggle="tooltip" data-bs-custom-class="tooltip-inverse" data-bs-placement="top" title="Delete Attachment">Delete</a>
+                                    </td>
+                                    <td width="10%">
+                                        <a href="{{ asset('files/'.$attachment->path) }}" download data-bs-toggle="tooltip" data-bs-custom-class="tooltip-inverse" data-bs-placement="top" title="Download Attachment">Download</a>
+                                    </td>
                                 </tr>
                             </table> 
                         </div>
@@ -341,11 +345,56 @@ var KTModaluserAdd = function () {
             handleForm();
         }
     };
+    
+        
+        
 }();
 
 // On document ready
 KTUtil.onDOMContentLoaded(function () {
 	KTModaluserAdd.init();
+});
+
+$(document).on('click', '.delete-attachment', function (e) {
+    e.preventDefault();
+    var id = $(this).attr('data-delete-attachment');
+    const attachment = $(this);
+   
+    Swal.fire({
+        text: "Are you sure you would like to delete attachment?",
+        icon: "warning",
+        showCancelButton: true,
+        buttonsStyling: false,
+        confirmButtonText: "Yes, cancel it!",
+        cancelButtonText: "No, return",
+        customClass: {
+            confirmButton: "btn btn-primary",
+            cancelButton: "btn btn-active-light"
+        }
+    }).then(function (result) {
+        if (result.value) {
+            $.ajax({
+                url: "{{ route('ticket.delete-attachment')}}",
+                type: "POST",
+                data:  {id: id},
+                success: function (res) {
+                    if(res.success){
+                        $(attachment).closest("tr").remove();
+                    }else{
+                        Swal.fire({
+                            text: 'Something Went Wrong! Please Try Again Later',
+                            icon: "error",
+                            buttonsStyling: false,
+                            confirmButtonText: "Ok, got it!",
+                            customClass: {
+                                confirmButton: "btn fw-bold btn-primary",
+                            }
+                        })
+                    }
+                }
+            });		
+        }
+    });
 });
 
 </script>

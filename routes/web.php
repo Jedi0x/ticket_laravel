@@ -96,5 +96,6 @@ Route::group(['middleware' => ['auth']], function () {
     Route::resource('ticket', TicketController::class);
     Route::post('fetch_ticket',[TicketController::class,'fetch_ticket_ajax'])->name('ticket.fetch');
     Route::post('delete_ticket',[TicketController::class,'delete_ajax'])->name('ticket.delete-ajax');
+    Route::post('remove_attachment_ticket',[TicketController::class,'remove_attachment'])->name('ticket.delete-attachment');
 });
 

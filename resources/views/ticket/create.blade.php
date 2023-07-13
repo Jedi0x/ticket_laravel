@@ -124,7 +124,7 @@
                         
                         <div class="col-md-6 fv-row">
                             <label class="required fs-6 fw-semibold mb-2" for="category_id">Category</label>
-                            <select aria-label="Select a type" data-control="select2"  data-placeholder="Select a category_id"  id="category_id" name="category_id" class="form-select form-select-solid fw-bold">
+                            <select aria-label="Select a type" data-control="select2"  data-placeholder="Select a category"  id="category_id" name="category_id" class="form-select form-select-solid fw-bold">
                                 <option value="">Select a category</option>
                                 @foreach($categories as $category)
                                     <option value="{{ $category->id }}" {{ old('category') == $category->name ?'selected' :'' }}> {{ $category->name }} </option>

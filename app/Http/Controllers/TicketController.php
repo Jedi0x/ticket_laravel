@@ -9,6 +9,7 @@ use App\Models\Status;
 use App\Models\Ticket;
 use App\Models\Category;
 use App\Models\Priority;
+use Illuminate\Support\Facades\File;
 use App\Models\Attachment;
 use App\Models\Department;
 use Illuminate\Http\Request;
@@ -256,6 +257,15 @@ class TicketController extends Controller
     public function delete_ajax(Request $request){
         $ticket  = Ticket::find($request->id);
         $ticket->delete();
+        return response()->json([
+            'success' => true
+        ]);
+    }
+    
+    public function remove_attachment(Request $request){
+        $attachment  = Attachment::findOrFail($request->id);
+        File::delete('files/'.$attachment->path);
+        $attachment->delete();
         return response()->json([
             'success' => true
         ]);
