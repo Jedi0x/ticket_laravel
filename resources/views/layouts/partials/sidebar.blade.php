@@ -36,7 +36,7 @@
                     <!--begin:Menu item-->
                     <div class="menu-item">
                         <!--begin:Menu link-->
-                        <a class="menu-link" href="{{ route('dashboard') }}">
+                        <a class="menu-link {{ Route::is('dashboard') ? 'active' : '' }}" href="{{ route('dashboard') }}">
                             <span class="menu-icon">
                                 <span class="svg-icon svg-icon-2">
                                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -57,7 +57,7 @@
                     <!--begin:Menu item-->
                     <div class="menu-item">
                         <!--begin:Menu link-->
-                        <a class="menu-link" href="{{ route('ticket.index') }}">
+                        <a class="menu-link {{ Route::is('ticket.*') ? 'active' : '' }}" href="{{ route('ticket.index') }}">
                             <span class="menu-icon">
                                 <span class="svg-icon svg-icon-2">
                                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -95,7 +95,7 @@
                     <!--begin:Menu item-->
                     <div class="menu-item">
                         <!--begin:Menu link-->
-                        <a class="menu-link" href="{{ route('customer.index') }}">
+                        <a class="menu-link {{ Route::is('customer.*') ? 'active' : '' }}" href="{{ route('customer.index') }}">
                             <span class="menu-icon">
                                 <span class="svg-icon svg-icon-2">
                                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -117,7 +117,7 @@
                     <!--begin:Menu item-->
                     <div class="menu-item">
                         <!--begin:Menu link-->
-                        <a class="menu-link" href="{{ route('contact.index') }}">
+                        <a class="menu-link {{ Route::is('contact.*') ? 'active' : '' }}" href="{{ route('contact.index') }}">
                             <span class="menu-icon">
                                 <span class="svg-icon svg-icon-2">
                                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -136,7 +136,7 @@
                     <!--begin:Menu item-->
                     <div class="menu-item">
                         <!--begin:Menu link-->
-                        <a class="menu-link" href="{{ route('organization.index') }}">
+                        <a class="menu-link {{ Route::is('organization.*') ? 'active' : '' }}" href="{{ route('organization.index') }}">
                             <span class="menu-icon">
                                 <span class="svg-icon svg-icon-2">
                                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -155,7 +155,7 @@
                     <!--begin:Menu item-->
                     <div class="menu-item">
                         <!--begin:Menu link-->
-                        <a class="menu-link" href="{{ route('user.index') }}">
+                        <a class="menu-link {{ Route::is('user.*') ? 'active' : '' }}" href="{{ route('user.index') }}">
                             <span class="menu-icon">
                                 <span class="svg-icon svg-icon-2">
                                     <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -172,7 +172,7 @@
                     <!--end:Menu item-->
                 
                     <!--begin:Menu link-->
-                    <span class="menu-link">
+                    <span class="menu-link {{ (Route::is('role.*') || Route::is('permission.*') || Route::is('category.*') || Route::is('status.*') || Route::is('priority.*') || Route::is('department.*') || Route::is('type.*') || Route::is('evaluation.*')) ? 'active' : '' }}">
                         <span class="menu-icon">
                             <span class="svg-icon svg-icon-2">
                                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -186,11 +186,11 @@
                     </span>
                     <!--end:Menu link-->
                     <!--begin:Menu sub-->
-                    <div class="menu-sub menu-sub-accordion">
+                    <div class="menu-sub menu-sub-accordion {{ (Route::is('role.*') || Route::is('permission.*') || Route::is('category.*') || Route::is('status.*') || Route::is('priority.*') || Route::is('department.*') || Route::is('type.*') || Route::is('evaluation.*')) ? 'show' : '' }}">
                         <!--begin:Menu item-->
                         <div class="menu-item">
                             <!--begin:Menu link-->
-                            <a class="menu-link" href="{{ route('role.index') }}">
+                            <a class="menu-link {{ Route::is('role.*') ? 'active' : '' }}" href="{{ route('role.index') }}">
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
                                 </span>
@@ -203,7 +203,7 @@
                          <!--begin:Menu item-->
                         <div class="menu-item">
                             <!--begin:Menu link-->
-                            <a class="menu-link" href="{{ route('permission.index') }}">
+                            <a class="menu-link {{ Route::is('permission.*') ? 'active' : '' }}" href="{{ route('permission.index') }}">
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
                                 </span>
@@ -216,7 +216,7 @@
                         <!--begin:Menu item-->
                         <div class="menu-item">
                             <!--begin:Menu link-->
-                            <a class="menu-link" href="{{ route('category.index') }}">
+                            <a class="menu-link {{ Route::is('category.*') ? 'active' : '' }}" href="{{ route('category.index') }}">
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
                                 </span>
@@ -228,7 +228,7 @@
                         <!--begin:Menu item-->
                         <div class="menu-item">
                             <!--begin:Menu link-->
-                            <a class="menu-link" href="{{ route('status.index') }}">
+                            <a class="menu-link {{ Route::is('status.*') ? 'active' : '' }}" href="{{ route('status.index') }}">
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
                                 </span>
@@ -240,7 +240,7 @@
                         <!--begin:Menu item-->
                         <div class="menu-item">
                             <!--begin:Menu link-->
-                            <a class="menu-link" href="{{ route('priority.index') }}">
+                            <a class="menu-link {{ Route::is('priority.*') ? 'active' : '' }}" href="{{ route('priority.index') }}">
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
                                 </span>
@@ -252,7 +252,7 @@
                         <!--begin:Menu item-->
                         <div class="menu-item">
                             <!--begin:Menu link-->
-                            <a class="menu-link" href="{{ route('department.index') }}">
+                            <a class="menu-link {{ Route::is('department.*') ? 'active' : '' }}" href="{{ route('department.index') }}">
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
                                 </span>
@@ -264,7 +264,7 @@
                         <!--begin:Menu item-->
                         <div class="menu-item">
                             <!--begin:Menu link-->
-                            <a class="menu-link" href="{{ route('type.index') }}">
+                            <a class="menu-link {{ Route::is('type.*') ? 'active' : '' }}" href="{{ route('type.index') }}">
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
                                 </span>
@@ -277,6 +277,7 @@
                         <div class="menu-item">
                             <!--begin:Menu link-->
                             <a class="menu-link" href="{{ route('email_template.index') }}">
+
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
                                 </span>
@@ -288,7 +289,7 @@
                         <!--begin:Menu item-->
                         <div class="menu-item">
                             <!--begin:Menu link-->
-                            <a class="menu-link" href="{{ route('evaluation.index') }}">
+                            <a class="menu-link {{ Route::is('evaluation.*') ? 'active' : '' }}" href="{{ route('evaluation.index') }}">
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
                                 </span>
