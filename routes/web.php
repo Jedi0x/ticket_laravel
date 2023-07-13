@@ -47,41 +47,54 @@ Route::group(['middleware' => ['auth']], function () {
 
     Route::resource('role', RoleController::class);
     Route::post('fetch_role',[RoleController::class,'fetch_role_ajax'])->name('role.fetch');
+    Route::post('delete_role',[RoleController::class,'delete_ajax'])->name('role.delete-ajax');
 
     Route::resource('permission', PermissionController::class);
     Route::post('fetch_permission',[PermissionController::class,'fetch_permission_ajax'])->name('permission.fetch');
+    Route::post('delete_permission',[PermissionController::class,'delete_ajax'])->name('permission.delete-ajax');
 
     Route::resource('user', UserController::class);
     Route::post('fetch_user',[UserController::class,'fetch_user_ajax'])->name('user.fetch');
+    Route::post('delete_user',[UserController::class,'delete_ajax'])->name('user.delete-ajax');
     
     Route::resource('customer', CustomerController::class);
     Route::post('fetch_customer',[CustomerController::class,'fetch_customer_ajax'])->name('customer.fetch');
+    Route::post('delete_customer',[CustomerController::class,'delete_ajax'])->name('customer.delete-ajax');
 
     Route::resource('organization', OrganizationController::class);
     Route::post('fetch_organization',[OrganizationController::class,'fetch_organization_ajax'])->name('organization.fetch');
+    Route::post('delete_organization',[OrganizationController::class,'delete_ajax'])->name('organization.delete-ajax');
     
     Route::resource('contact', ContactController::class);
     Route::post('fetch_contact',[ContactController::class,'fetch_contact_ajax'])->name('contact.fetch');
+    Route::post('delete_contact',[ContactController::class,'delete_ajax'])->name('contact.delete-ajax');
     
     Route::resource('category', CategoryController::class);
     Route::post('fetch_category',[CategoryController::class,'fetch_category_ajax'])->name('category.fetch');
+    Route::post('delete_category',[CategoryController::class,'delete_ajax'])->name('category.delete-ajax');
 
     Route::resource('status', StatusController::class);
     Route::post('fetch_status',[StatusController::class,'fetch_status_ajax'])->name('status.fetch');
+    Route::post('delete_status',[StatusController::class,'delete_ajax'])->name('status.delete-ajax');
 
     Route::resource('priority', PrioritiesController::class);
     Route::post('fetch_priority',[PrioritiesController::class,'fetch_priority_ajax'])->name('priority.fetch');
+    Route::post('delete_priority',[PrioritiesController::class,'delete_ajax'])->name('priority.delete-ajax');
     
     Route::resource('department', DepartmentController::class);
     Route::post('fetch_department',[DepartmentController::class,'fetch_department_ajax'])->name('department.fetch');
+    Route::post('delete_department',[DepartmentController::class,'delete_ajax'])->name('department.delete-ajax');
 
     Route::resource('evaluation', EvaluationController::class);
     Route::post('fetch_evaluation',[EvaluationController::class,'fetch_evaluation_ajax'])->name('evaluation.fetch');
+    Route::post('delete_evaluation',[EvaluationController::class,'delete_ajax'])->name('evaluation.delete-ajax');
 
     Route::resource('type', TypeController::class);
     Route::post('fetch_type',[TypeController::class,'fetch_type_ajax'])->name('type.fetch');
+    Route::post('delete_type',[TypeController::class,'delete_ajax'])->name('type.delete-ajax');
     
     Route::resource('ticket', TicketController::class);
     Route::post('fetch_ticket',[TicketController::class,'fetch_ticket_ajax'])->name('ticket.fetch');
+    Route::post('delete_ticket',[TicketController::class,'delete_ajax'])->name('ticket.delete-ajax');
 });
 

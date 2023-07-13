@@ -179,4 +179,12 @@ class TypeController extends Controller
     {
         //
     }
+    
+    public function delete_ajax(Request $request){
+        $type  = Type::find($request->id);
+        $type->delete();
+        return response()->json([
+            'success' => true
+        ]);
+    }
 }

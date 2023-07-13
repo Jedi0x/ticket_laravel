@@ -223,4 +223,12 @@ class UserController extends Controller
     {
         //
     }
+    
+    public function delete_ajax(Request $request){
+        $user  = User::find($request->id);
+        $user->delete();
+        return response()->json([
+            'success' => true
+        ]);
+    }
 }

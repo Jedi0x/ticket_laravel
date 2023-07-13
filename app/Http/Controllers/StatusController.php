@@ -189,4 +189,12 @@ class StatusController extends Controller
     {
         //
     }
+    
+    public function delete_ajax(Request $request){
+        $status  = Status::find($request->id);
+        $status->delete();
+        return response()->json([
+            'success' => true
+        ]);
+    }
 }

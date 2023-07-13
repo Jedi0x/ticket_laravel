@@ -218,4 +218,12 @@ class ContactController extends Controller
     {
         //
     }
+    
+    public function delete_ajax(Request $request){
+        $contact  = Contact::find($request->id);
+        $contact->delete();
+        return response()->json([
+            'success' => true
+        ]);
+    }
 }

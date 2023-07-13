@@ -166,6 +166,45 @@
 				}
         	})
 		}
+		
+		$(document).on("click", ".delete", function(){
+			var id = $(this).attr("data-delete-id");
+			Swal.fire({
+                text: "Are you sure you would like to delete?",
+                icon: "warning",
+                showCancelButton: true,
+                buttonsStyling: false,
+                confirmButtonText: "Yes, cancel it!",
+                cancelButtonText: "No, return",
+                customClass: {
+                    confirmButton: "btn btn-primary",
+                    cancelButton: "btn btn-active-light"
+                }
+            }).then(function (result) {
+                if (result.value) {
+                    $.ajax({
+						url: "{{ route('organization.delete-ajax')}}",
+						type: "POST",
+						data:  {id: id},
+						success: function (res) {
+							if(res.success){
+								window.location.href = "{{ route('organization.index') }}"; 
+							}else{
+								Swal.fire({
+									text: 'Something Went Wrong! Please Try Again Later',
+									icon: "error",
+									buttonsStyling: false,
+									confirmButtonText: "Ok, got it!",
+									customClass: {
+										confirmButton: "btn fw-bold btn-primary",
+									}
+								})
+							}
+						}
+					});
+                }
+            });
+		})
 			
     });  
 </script>

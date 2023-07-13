@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', $user->first_name. ' '. $user->last_name)
+@section('title', $ticket->subject)
 @section('content')
 
 <!--begin::Toolbar-->
@@ -9,7 +9,7 @@
 		<!--begin::Page title-->
 		<div class="page-title d-flex flex-column justify-content-center flex-wrap me-3">
 			<!--begin::Title-->
-			<h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">{{ $user->first_name. ' '. $user->last_name }}</h1>
+			<h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">{{ $ticket->subject }}</h1>
 			<!--end::Title-->
 			<!--begin::Breadcrumb-->
 			<ul class="breadcrumb breadcrumb-separatorless fw-semibold fs-7 my-0 pt-1">
@@ -24,7 +24,7 @@
 				</li>
 				<!--end::Item-->
 				<!--begin::Item-->
-				<li class="breadcrumb-item text-muted">User</li>
+				<li class="breadcrumb-item text-muted">Ticket</li>
 				<!--end::Item-->
 			</ul>
 			<!--end::Breadcrumb-->
@@ -40,73 +40,131 @@
 		<div class="card mb-5 mb-xl-10">
             <div class="card-header border-0">
                 <div class="card-title m-0">
-                    <h3 class="fw-bold m-0">{{ $user->first_name. ' '. $user->last_name }}</h3>
+                    <h3 class="fw-bold m-0">{{ $ticket->subject }}</h3>
                 </div>
             </div>
-            <form class="form" action="{{ route('user.update',$user->id) }}" method="POST" id="kt_modal_add_user_form">
+            <form class="form" action="{{ route('ticket.update',$ticket->id) }}" method="POST" id="kt_modal_add_ticket_form" enctype="multipart/form-data">
                 @csrf
                 @method('PATCH')
                 <div class="card-body border-top p-9">
                     <div class="row g-9 mb-7">
+                    
                         <div class="col-md-6 fv-row">
-                            <label class="required fs-6 fw-semibold mb-2" for="first_name">First name</label>
-                            <input class="form-control form-control-solid" type="text" placeholder="Please enter first name" name="first_name" id="first_name" value="{{ old('first_name') ?? $user->first_name }}"/>
-                        </div>
-                        
-                        <div class="col-md-6 fv-row">
-                            <label class="required fs-6 fw-semibold mb-2" for="last_name">Last name</label>
-                            <input class="form-control form-control-solid" type="text" placeholder="Please enter last name" name="last_name" id="last_name" value="{{ old('last_name') ?? $user->last_name }}"/>
-                        </div>
-                        
-                        <div class="col-md-6 fv-row">
-                            <label class="required fs-6 fw-semibold mb-2" for="email">Email</label>
-                            <input class="form-control form-control-solid" type="email" placeholder="Please enter email" name="email" id="email" value="{{ old('email') ?? $user->email }}"/>
-                        </div>
-                        
-                        
-                        <div class="col-md-6 fv-row">
-                            <label class="required fs-6 fw-semibold mb-2" for="phone">Phone</label>
-                            <input class="form-control form-control-solid" type="number" placeholder="Please enter phone number" name="phone" id="phone" value="{{ old('phone') ?? $user->phone }}"/>
-                        </div>
-                        
-
-                        <div class="col-md-6 fv-row">
-                            <label class="required fs-6 fw-semibold mb-2" for="address">Address</label>
-                            <input class="form-control form-control-solid" type="text" placeholder="Please enter address" name="address" id="address" value="{{ old('address') ?? $user->address }}"/>
-                        </div>
-                        
-                        <div class="col-md-6 fv-row">
-                            <label class="required fs-6 fw-semibold mb-2" for="city">City</label>
-                            <input class="form-control form-control-solid" type="text" placeholder="Please enter city" name="city" id="city" value="{{ old('city') ?? $user->city }}"/>
-                        </div>
-                        
-                        <div class="col-md-6 fv-row">
-                            <label class="required fs-6 fw-semibold mb-2" for="country">Country</label>
-                            <select aria-label="Select a country" data-control="select2"  data-placeholder="Select a country" id="country" name="country" class="form-select form-select-solid fw-bold">
-                                <option value="">Select a country</option>
-                                @foreach($countries as $country)
-                                    <option value="{{ $country->id }}" {{ ($user->country_id  == $country->id) ? 'selected' :'' }}> {{ $country->name }} </option>
+                            <label class="required fs-6 fw-semibold mb-2" for="user_id">Customer</label>
+                            <select aria-label="Select a customer" data-control="select2"  data-placeholder="Select a customer"  id="user_id" name="user_id" class="form-select form-select-solid fw-bold">
+                                <option value="">Select a customer</option>
+                                @foreach($customers as $customer)
+                                    <option value="{{ $customer->id }}" {{ @$ticket->user->id == $customer->id ? 'selected' :'' }}> {{ $customer->first_name . ' ' .$customer->last_name }} </option>
                                 @endforeach
                                 
                             </select>
                         </div>
                         
                         <div class="col-md-6 fv-row">
-                            <label class="required fs-6 fw-semibold mb-2" for="role">Role</label>
-                            <select aria-label="Select a role" data-control="select2"  data-placeholder="Select a role"  id="role" name="role" class="form-select form-select-solid fw-bold">
-                                <option value="">Select a role</option>
-                                @foreach($roles as $role)
-                                    <option value="{{ $role->name }}" {{ $user->roles->first()->id == $role->id ?'selected' :'' }}> {{ $role->name }} </option>
+                            <label class="required fs-6 fw-semibold mb-2" for="priority_id">Priority</label>
+                            <select aria-label="Select a priority" data-control="select2"  data-placeholder="Select a priority"  id="priority_id" name="priority_id" class="form-select form-select-solid fw-bold">
+                                <option value="">Select a priority</option>
+                                @foreach($priorities as $priority)
+                                    <option value="{{ $priority->id }}" {{ @$ticket->priority->id == $priority->id ? 'selected' :'' }}> {{ $priority->name }} </option>
                                 @endforeach
+                                
                             </select>
                         </div>
+                        
+                        <div class="col-md-6 fv-row">
+                            <label class="required fs-6 fw-semibold mb-2" for="status_id">Status</label>
+                            <select aria-label="Select a status" data-control="select2"  data-placeholder="Select a status"  id="status_id" name="status_id" class="form-select form-select-solid fw-bold">
+                                <option value="">Select a status</option>
+                                @foreach($status as $s)
+                                    <option value="{{ $s->id }}" {{ @$ticket->status->id == $s->id ? 'selected' :'' }}> {{ $s->name }} </option>
+                                @endforeach
+                                
+                            </select>
+                        </div>
+                        
+                        
+                        <div class="col-md-6 fv-row">
+                            <label class="required fs-6 fw-semibold mb-2" for="department_id">Department</label>
+                            <select aria-label="Select a department" data-control="select2"  data-placeholder="Select a department"  id="department_id" name="department_id" class="form-select form-select-solid fw-bold">
+                                <option value="">Select a department</option>
+                                @foreach($departments as $department)
+                                    <option value="{{ $department->id }}" {{ @$ticket->department->id == $department->id ? 'selected' :'' }}> {{ $department->name }} </option>
+                                @endforeach
+                                
+                            </select>
+                        </div>
+                        
+                        
+                        <div class="col-md-6 fv-row">
+                            <label class="required fs-6 fw-semibold mb-2" for="assigned_to">Assigned to</label>
+                            <select aria-label="Select a assigned" data-control="select2"  data-placeholder="Select a assigned"  id="assigned_to" name="assigned_to" class="form-select form-select-solid fw-bold">
+                                <option value="">Select a assigned</option>
+                                @foreach($assigned_to as $assign)
+                                    <option value="{{ $assign->id }}" {{ @$ticket->assignedTo->id == $assign->id ? 'selected' :'' }}> {{ $assign->first_name.' '.$assign->last_name }} </option>
+                                @endforeach
+                                
+                            </select>
+                        </div>
+                        
+                        
+                        <div class="col-md-6 fv-row">
+                            <label class="required fs-6 fw-semibold mb-2" for="type_id">Type</label>
+                            <select aria-label="Select a type" data-control="select2"  data-placeholder="Select a type"  id="type_id" name="type_id" class="form-select form-select-solid fw-bold">
+                                <option value="">Select a type</option>
+                                @foreach($types as $type)
+                                    <option value="{{ $type->id }}" {{ @$ticket->type_id == $type->id ? 'selected' :'' }}> {{ $type->name }} </option>
+                                @endforeach
+                                
+                            </select>
+                        </div>
+                        
+                        <div class="col-md-6 fv-row">
+                            <label class="required fs-6 fw-semibold mb-2" for="subject">Subject</label>
+                            <input class="form-control form-control-solid" type="text" placeholder="Please enter subject" name="subject" id="subject" value="{{ old('subject') ?? $ticket->subject }}"/>
+                        </div>
+                        
+                        <div class="col-md-6 fv-row">
+                            <label class="required fs-6 fw-semibold mb-2" for="category_id">Category</label>
+                            <select aria-label="Select a type" data-control="select2"  data-placeholder="Select a category_id"  id="category_id" name="category_id" class="form-select form-select-solid fw-bold">
+                                <option value="">Select a category</option>
+                                @foreach($categories as $category)
+                                    <option value="{{ $category->id }}" {{ @$ticket->category->id == $category->id ? 'selected' :'' }}> {{ $category->name }} </option>
+                                @endforeach
+                                
+                            </select>
+                        </div>
+                         
+                        <div class="col-md-6 fv-row">
+                            <label for="attachment" class="fs-6 fw-semibold mb-2">Attachments</label>
+                            <input class="form-control form-control form-control-solid" type="file" name="files[]" id="attachment" multiple />
+                        </div>
+                        
+                        <div class="col-md-6 fv-row">
+                            <label for="details" class="required fs-6 fw-semibold mb-2">Request Details</label>
+                            <textarea class="form-control form-control form-control-solid" name="details" id="details" data-kt-autosize="true">{{ @$ticket->details }}</textarea>
+                        </div>
+                         
                     </div>
+                    
+                    @foreach($ticket->attachments as $attachment)
+                    <div class="row g-9 mb-7">
+                        <div class="col-md-6 fv-row">
+                            <table width="100%">
+                                <tr>
+                                    <td width="80%">{{ $attachment->name }} ({{  round($attachment->size / 1024,4).' KB' }})</td>
+                                    <td width="10%">Delete</td>
+                                    <td width="10%">Download</td>
+                                </tr>
+                            </table> 
+                        </div>
+                    </div>
+                    @endforeach
                  
                 </div>
                 <div class="card-footer d-flex justify-content-end py-6 px-9">
-                    <button type="reset" class="btn btn-light btn-active-light-primary me-2" id="kt_modal_add_user_cancel">Discard</button>
-                    <button type="submit" id="kt_modal_add_user_submit" class="btn btn-primary">
-                        <span class="indicator-label">Update</span>
+                    <button type="reset" class="btn btn-light btn-active-light-primary me-2" id="kt_modal_add_ticket_cancel">Discard</button>
+                    <button type="submit" id="kt_modal_add_ticket_submit" class="btn btn-primary">
+                        <span class="indicator-label">Submit</span>
                         <span class="indicator-progress">Please wait...
                         <span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
                     </button>
@@ -132,70 +190,66 @@ var KTModaluserAdd = function () {
 			form,
 			{
 				fields: {
-                    first_name: {
+                    user_id: {
 						validators: {
 							notEmpty: {
-								message: 'The first name is required'
+								message: 'The customer is required'
 							}
 						}
 					},
-                    last_name: {
+                    priority_id: {
 						validators: {
 							notEmpty: {
-								message: 'The last name is required'
+								message: 'The priority is required'
 							}
 						}
 					},
-                    email: {
+                    status_id: {
 						validators: {
 							notEmpty: {
-                                message: "The email is required"
-                            },
-                            emailAddress: {
-                                message: 'The email is not a valid email address'
+                                message: "The status is required"
                             }
 						}
 					},
-                    phone: {
+                    department_id: {
+						validators: {
+							notEmpty: {
+								message: 'The department is required'
+							}
+						}
+					},
+                    assigned_to: {
                         validators: {
                             notEmpty: {
-                                message: "The phone number is required"
-                            },
-                            stringLength: {
-                                min: 11,
-                                message: "The phone number must be more than 7 characters"
-                            },
-                            regexp: {
-                                message: "The phone number can only consist of number",
-                                regexp: /^[0-9]*$/
-                            },
+                                message: "The assign is required"
+                            }
                         }
                     },
-                    address: {
+                    type_id: {
 						validators: {
 							notEmpty: {
-								message: 'The address is required'
+								message: 'The type is required'
 							}
 						}
 					},
-                    city: {
+                    subject: {
 						validators: {
 							notEmpty: {
-								message: 'The city is required'
+								message: 'The subject is required'
 							}
 						}
 					},
-                    country: {
+                    category_id: {
 						validators: {
 							notEmpty: {
-								message: 'The country is required'
+								message: 'The category is required'
 							}
 						}
 					},
-                    role: {
+                    details: {
 						validators: {
 							notEmpty: {
-								message: 'The role is required'
+								message: 'The detail is required'
 							}
 						}
 					}
@@ -281,9 +335,9 @@ var KTModaluserAdd = function () {
         // Public functions
         init: function () {
             // Elements
-            form = document.querySelector('#kt_modal_add_user_form');
-            submitButton = form.querySelector('#kt_modal_add_user_submit');
-            cancelButton = form.querySelector('#kt_modal_add_user_cancel');
+            form = document.querySelector('#kt_modal_add_ticket_form');
+            submitButton = form.querySelector('#kt_modal_add_ticket_submit');
+            cancelButton = form.querySelector('#kt_modal_add_ticket_cancel');
             handleForm();
         }
     };

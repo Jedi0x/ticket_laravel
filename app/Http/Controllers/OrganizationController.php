@@ -203,4 +203,12 @@ class OrganizationController extends Controller
     {
         //
     }
+    
+    public function delete_ajax(Request $request){
+        $organization  = Organization::find($request->id);
+        $organization->delete();
+        return response()->json([
+            'success' => true
+        ]);
+    }
 }

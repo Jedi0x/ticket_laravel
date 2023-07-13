@@ -178,4 +178,12 @@ class DepartmentController extends Controller
     {
         //
     }
+    
+    public function delete_ajax(Request $request){
+        $department  = Department::find($request->id);
+        $department->delete();
+        return response()->json([
+            'success' => true
+        ]);
+    }
 }

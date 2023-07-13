@@ -220,4 +220,12 @@ class CustomerController extends Controller
     {
         //
     }
+    
+    public function delete_ajax(Request $request){
+        $customer  = User::find($request->id);
+        $customer->delete();
+        return response()->json([
+            'success' => true
+        ]);
+    }
 }

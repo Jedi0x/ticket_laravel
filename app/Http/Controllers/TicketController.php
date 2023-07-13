@@ -189,9 +189,19 @@ class TicketController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Ticket $ticket)
     {
-        //
+        $customers = User::role('customer')->whereNull('deleted_at')->get();
+        $priorities = Priority::whereNull('deleted_at')->get();
+        $status = Status::whereNull('deleted_at')->get();
+        $departments = Department::whereNull('deleted_at')->get();
+        $assigned_to = $users = User::whereDoesntHave('roles', function ($query) {
+            $query->whereIn('name', ['customer']);
+        })->whereNull('deleted_at')->get();
+        $types = Type::whereNull('deleted_at')->get();
+        $categories = Category::whereNull('deleted_at')->get();
+        
+        return view('ticket.edit',get_defined_vars());
     }
 
     /**
@@ -201,9 +211,35 @@ class TicketController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
-    {
-        //
+    public function update(Request $request, Ticket $ticket)
+    {      
+        try{
+            $ticket->user_id = $request->user_id;
+            $ticket->priority_id = $request->priority_id;
+            $ticket->status_id = $request->status_id;
+            $ticket->department_id = $request->department_id;
+            $ticket->assigned_to =$request->assigned_to;
+            $ticket->category_id = $request->category_id;
+            $ticket->type_id = $request->type_id;
+            $ticket->subject = $request->subject;
+            $ticket->details = $request->details;
+            if( $ticket->update() ){
+                if($request->hasFile('files')){
+                    $files = $request->file('files');
+                    foreach($files as $file){
+                        $file_path = $file->store('tickets', ['disk' => 'file_uploads']);
+                        Attachment::create(['ticket_id' => $ticket->id, 'name' => $file->getClientOriginalName(), 'size' => $file->getSize(), 'path' => $file_path]);
+                    }
+                }
+                return redirect()->route('ticket.index')->with('success','Ticket Updated Successfully');
+            }else{
+                return redirect()->route('ticket.index')->with('warning','There was some problem updating User');
+            }
+        }
+        catch (Exception $e){
+            dd($e);
+            return redirect()->route('ticket.index')->with('warning', 'Something Went Wrong! Please Try Again Later');
+        }
     }
 
     /**
@@ -215,5 +251,13 @@ class TicketController extends Controller
     public function destroy($id)
     {
         //
+    }
+    
+    public function delete_ajax(Request $request){
+        $ticket  = Ticket::find($request->id);
+        $ticket->delete();
+        return response()->json([
+            'success' => true
+        ]);
     }
 }

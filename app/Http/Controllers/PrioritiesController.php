@@ -179,4 +179,12 @@ class PrioritiesController extends Controller
     {
         //
     }
+    
+    public function delete_ajax(Request $request){
+        $priority  = Priority::find($request->id);
+        $priority->delete();
+        return response()->json([
+            'success' => true
+        ]);
+    }
 }

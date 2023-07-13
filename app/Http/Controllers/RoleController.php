@@ -196,4 +196,12 @@ class RoleController extends Controller
     {
         //
     }
+    
+    public function delete_ajax(Request $request){
+        $role  = Role::find($request->id);
+        $role->delete();
+        return response()->json([
+            'success' => true
+        ]);
+    }
 }

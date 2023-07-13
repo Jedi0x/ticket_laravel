@@ -9,7 +9,7 @@
 @elseif( $col == 'actions' )
     @can('delete-permission')
     <div class="text-end">
-        <button type="button" class="btn btn-sm btn-icon btn-danger" data-bs-toggle="tooltip" data-bs-custom-class="tooltip-inverse" data-bs-placement="top" title="Delete Permission"><i class="fa-sharp fa-solid fa-trash"></i></button>
+        <button type="button" class="btn btn-sm btn-icon btn-danger delete" data-delete-id = {{ $permissions->id}} data-bs-toggle="tooltip" data-bs-custom-class="tooltip-inverse" data-bs-placement="top" title="Delete Permission"><i class="fa-sharp fa-solid fa-trash"></i></button>
     </div>
     @endcan
 @endif

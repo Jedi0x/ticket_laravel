@@ -193,4 +193,13 @@ class EvaluationController extends Controller
     {
         //
     }
+    
+    public function delete_ajax(Request $request){
+        $evaluation  = Evaluation::find($request->id);
+        $evaluation->delete();
+        EvaluationQuestion::where('evaluation_id', $request->id)->delete();
+        return response()->json([
+            'success' => true
+        ]);
+    }
 }

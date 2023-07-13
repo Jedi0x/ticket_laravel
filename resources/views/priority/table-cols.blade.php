@@ -14,7 +14,7 @@
         @endcan
         
         @can('delete-category')
-        <button type="button" class="btn btn-sm btn-icon btn-danger" data-bs-toggle="tooltip" data-bs-custom-class="tooltip-inverse" data-bs-placement="top" title="Delete Role"><i class="fa-sharp fa-solid fa-trash"></i></button>
+        <button type="button" class="btn btn-sm btn-icon btn-danger delete" data-delete-id = {{ $priority->id}} data-bs-toggle="tooltip" data-bs-custom-class="tooltip-inverse" data-bs-placement="top" title="Delete Role"><i class="fa-sharp fa-solid fa-trash"></i></button>
         @endcan
     </div>
     @endcanany

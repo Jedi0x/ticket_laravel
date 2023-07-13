@@ -168,4 +168,12 @@ class PermissionController extends Controller
     {
         //
     }
+    
+    public function delete_ajax(Request $request){
+        $permission  = Permission::find($request->id);
+        $permission->delete();
+        return response()->json([
+            'success' => true
+        ]);
+    }
 }
