@@ -17,6 +17,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\PrioritiesController;
 use App\Http\Controllers\TicketController;
 use App\Http\Controllers\TypeController;
+use App\Http\Controllers\EmailController;
 
 /*
 |--------------------------------------------------------------------------
@@ -92,7 +93,12 @@ Route::group(['middleware' => ['auth']], function () {
     Route::resource('type', TypeController::class);
     Route::post('fetch_type',[TypeController::class,'fetch_type_ajax'])->name('type.fetch');
     Route::post('delete_type',[TypeController::class,'delete_ajax'])->name('type.delete-ajax');
-    
+
+    Route::resource('email_template', EmailController::class);
+    Route::post('fetch_email_template',[EmailController::class,'fetch_email_ajax'])->name('email_template.fetch');
+    Route::post('delete_email_template',[EmailController::class,'delete_ajax'])->name('email_template.delete-ajax');
+    Route::post('view_email_template',[EmailController::class,'view_ajax'])->name('email_template.view-ajax');
+
     Route::resource('ticket', TicketController::class);
     Route::post('fetch_ticket',[TicketController::class,'fetch_ticket_ajax'])->name('ticket.fetch');
     Route::post('delete_ticket',[TicketController::class,'delete_ajax'])->name('ticket.delete-ajax');
