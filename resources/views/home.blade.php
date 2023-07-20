@@ -67,8 +67,8 @@
 									<!--end::Mobile menu toggle-->
 									<!--begin::Logo image-->
 									<a href="">
-										<img alt="Logo" src="{{ asset('assets/media/logos/landing.svg') }}" class="logo-default h-25px h-lg-30px" />
-										<img alt="Logo" src="{{ asset('assets/media/logos/landing-dark.svg') }}" class="logo-sticky h-20px h-lg-25px" />
+										<img alt="Logo" src="{{ asset('assets/media/logos/logo.png') }}" class="logo-default h-45px h-lg-30px" />
+										<img alt="Logo" src="{{ asset('assets/media/logos/logo.png') }}" class="logo-sticky h-45px h-lg-25px" />
 									</a>
 									<!--end::Logo image-->
 								</div>
@@ -121,7 +121,7 @@
 								<!--end::Menu wrapper-->
 								<!--begin::Toolbar-->
 								<div class="flex-equal text-end ms-1">
-									<a href="" class="btn btn-success">Sign In</a>
+									<a href="{{ route('login') }}" class="btn btn-success">Login Helpdesk</a>
 								</div>
 								<!--end::Toolbar-->
 							</div>
@@ -144,8 +144,8 @@
 							<h3 class="text-white lh-base fw-bold mb-15">It's much easier now to create, assign, manage and resolve <br> tickets with HelpDesk. You just need to host this web <br> application on any hosting server of your choice and use it.</h3>
 							<!--end::Title-->
 							<!--begin::Action-->
-							<a href="../../demo1/dist/index.html" class="btn btn-primary">Login HelpDesk</a>
-							<a href="../../demo1/dist/index.html" class="btn btn-primary">Submit Ticket</a>
+							<a href="" class="btn btn-primary">Submit Survey</a>
+							<a href="" class="btn btn-primary">Submit Ticket</a>
 							<!--end::Action-->
 						</div>
 						<!--end::Heading-->
@@ -183,7 +183,86 @@
 					<!--end::Heading-->
 					<!--begin::Row-->
 					<div class="row w-100 gy-10 mb-md-20">
-		
+						<!--begin::Col-->
+						<div class="col-md-4 px-5">
+							<!--begin::Story-->
+							<div class="text-center mb-10 mb-md-0">
+								<!--begin::Illustration-->
+								<img src="assets/media/illustrations/sketchy-1/2.png" class="mh-125px mb-9" alt="" />
+								<!--end::Illustration-->
+								<!--begin::Heading-->
+								<div class="d-flex flex-center mb-5">
+									<!--begin::Badge-->
+									<span class="badge badge-circle badge-light-success fw-bold p-5 me-3 fs-3">1</span>
+									<!--end::Badge-->
+									<!--begin::Title-->
+									<div class="fs-5 fs-lg-3 fw-bold text-dark">Submit A ticket</div>
+									<!--end::Title-->
+								</div>
+								<!--end::Heading-->
+								<!--begin::Description-->
+								<div class="fw-semibold fs-6 fs-lg-4 text-muted">You can submit ticket from this
+								<br/>home page or dashboard after login.
+								<br/>If you don't have login access 
+								<br/>you can create account from this link.</div>
+								<!--end::Description-->
+							</div>
+							<!--end::Story-->
+						</div>
+						<!--end::Col-->
+						<!--begin::Col-->
+						<div class="col-md-4 px-5">
+							<!--begin::Story-->
+							<div class="text-center mb-10 mb-md-0">
+								<!--begin::Illustration-->
+								<img src="assets/media/illustrations/sketchy-1/8.png" class="mh-125px mb-9" alt="" />
+								<!--end::Illustration-->
+								<!--begin::Heading-->
+								<div class="d-flex flex-center mb-5">
+									<!--begin::Badge-->
+									<span class="badge badge-circle badge-light-success fw-bold p-5 me-3 fs-3">2</span>
+									<!--end::Badge-->
+									<!--begin::Title-->
+									<div class="fs-5 fs-lg-3 fw-bold text-dark">Track progress with email</div>
+									<!--end::Title-->
+								</div>
+								<!--end::Heading-->
+								<!--begin::Description-->
+								<div class="fw-semibold fs-6 fs-lg-4 text-muted">You will get email progress when
+								<br />change ticket status or you can
+								<br />comment and discuss with agent for a
+								<br/>particular ticket discussion.</div>
+								<!--end::Description-->
+							</div>
+							<!--end::Story-->
+						</div>
+						<!--end::Col-->
+						<!--begin::Col-->
+						<div class="col-md-4 px-5">
+							<!--begin::Story-->
+							<div class="text-center mb-10 mb-md-0">
+								<!--begin::Illustration-->
+								<img src="assets/media/illustrations/sketchy-1/12.png" class="mh-125px mb-9" alt="" />
+								<!--end::Illustration-->
+								<!--begin::Heading-->
+								<div class="d-flex flex-center mb-5">
+									<!--begin::Badge-->
+									<span class="badge badge-circle badge-light-success fw-bold p-5 me-3 fs-3">3</span>
+									<!--end::Badge-->
+									<!--begin::Title-->
+									<div class="fs-5 fs-lg-3 fw-bold text-dark">Done and Close the ticket</div>
+									<!--end::Title-->
+								</div>
+								<!--end::Heading-->
+								<!--begin::Description-->
+								<div class="fw-semibold fs-6 fs-lg-4 text-muted">After making done a ticket agent will
+								<br />close the ticket though status, you may
+								<br />get notify when close.</div>
+								<!--end::Description-->
+							</div>
+							<!--end::Story-->
+						</div>
+						<!--end::Col-->
 					</div>
 					<!--end::Row-->
 					<!--begin::Product slider-->
@@ -192,22 +271,22 @@
 						<div data-tns="true" data-tns-loop="true" data-tns-swipe-angle="false" data-tns-speed="2000" data-tns-autoplay="true" data-tns-autoplay-timeout="18000" data-tns-controls="true" data-tns-nav="false" data-tns-items="1" data-tns-center="false" data-tns-dots="false" data-tns-prev-button="#kt_team_slider_prev1" data-tns-next-button="#kt_team_slider_next1">
 							<!--begin::Item-->
 							<div class="text-center px-5 pt-5 pt-lg-10 px-lg-10">
-								<img src="{{ asset('assets/media/demos/demo1/light-ltr.png') }}" class="card-rounded shadow mh-lg-650px mw-100" alt="" />
+								<img src="assets/media/demos/demo1/light-ltr.png" class="card-rounded shadow mh-lg-650px mw-100" alt="" />
 							</div>
 							<!--end::Item-->
 							<!--begin::Item-->
 							<div class="text-center px-5 pt-5 pt-lg-10 px-lg-10">
-								<img src="{{ asset('assets/media/demos/demo2/light-ltr.png') }}" class="card-rounded shadow mh-lg-650px mw-100" alt="" />
+								<img src="assets/media/demos/demo2/light-ltr.png" class="card-rounded shadow mh-lg-650px mw-100" alt="" />
 							</div>
 							<!--end::Item-->
 							<!--begin::Item-->
 							<div class="text-center px-5 pt-5 pt-lg-10 px-lg-10">
-								<img src="{{ asset('assets/media/demos/demo4/light-ltr.png') }}" class="card-rounded shadow mh-lg-650px mw-100" alt="" />
+								<img src="assets/media/demos/demo4/light-ltr.png" class="card-rounded shadow mh-lg-650px mw-100" alt="" />
 							</div>
 							<!--end::Item-->
 							<!--begin::Item-->
 							<div class="text-center px-5 pt-5 pt-lg-10 px-lg-10">
-								<img src="{{ asset('assets/media/demos/demo5/light-ltr.png') }}" class="card-rounded shadow mh-lg-650px mw-100" alt="" />
+								<img src="assets/media/demos/demo5/light-ltr.png" class="card-rounded shadow mh-lg-650px mw-100" alt="" />
 							</div>
 							<!--end::Item-->
 						</div>
@@ -246,349 +325,108 @@
 			<div class="mb-lg-n15 position-relative z-index-2">
 				<!--begin::Container-->
 				<div class="container">
-					<!--begin::Card-->
-					<div class="card" style="filter: drop-shadow(0px 0px 40px rgba(68, 81, 96, 0.08))">
-						<!--begin::Card body-->
-						<div class="card-body p-lg-20">
-							<!--begin::Heading-->
-							<div class="text-center mb-5 mb-lg-10">
-								<!--begin::Title-->
-								<h3 class="fs-2hx text-dark mb-5" id="portfolio" data-kt-scroll-offset="{default: 100, lg: 250}">Our Projects</h3>
-								<!--end::Title-->
+					<form class="form" action="{{ route('front.create_ticket') }}" method="POST" id="kt_modal_create_front_ticket_form" enctype="multipart/form-data">
+					@csrf
+						<!--begin::Card-->
+						<div class="card" style="filter: drop-shadow(0px 0px 40px rgba(68, 81, 96, 0.08))">
+							<!--begin::Card body-->
+							<div class="card-body p-lg-20">
+								<!--begin::Heading-->
+								<div class=" mb-5 mb-lg-10">
+									<!--begin::Title-->
+									<h3 class="text-center fs-2hx text-dark mb-5" id="portfolio" data-kt-scroll-offset="{default: 100, lg: 250}">Create a ticket</h3>
+									<!--end::Title-->
+									<div class="separator my-10"></div>
+									
+									<div class="row g-9 mb-7">
+									
+										<div class="col-md-6 fv-row">
+											<label class="required fs-6 fw-semibold mb-2" for="first_name">First Name</label>
+											<input class="form-control form-control-solid" type="text" placeholder="Please enter first name" name="first_name" id="first_name"/>
+										</div>
+										
+										<div class="col-md-6 fv-row">
+											<label class="required fs-6 fw-semibold mb-2" for="last_name">Last Name</label>
+											<input class="form-control form-control-solid" type="text" placeholder="Please enter last name" name="last_name" id="last_name"/>
+										</div>
+										
+										<div class="col-md-6 fv-row">
+											<label class="required fs-6 fw-semibold mb-2" for="email">Email</label>
+											<input class="form-control form-control-solid" type="email" placeholder="Please enter email address" name="email" id="email"/>
+										</div>
+										
+										<div class="col-md-6 fv-row">
+											<label class="required fs-6 fw-semibold mb-2" for="phone">Phone</label>
+											<input class="form-control form-control-solid" type="number" placeholder="Please enter phone" name="phone" id="phone"/>
+										</div>
+										
+										<div class="col-md-6 fv-row">
+											<label class="required fs-6 fw-semibold mb-2" for="subject">Subject</label>
+											<input class="form-control form-control-solid" type="text" placeholder="Please enter subject" name="subject" id="subject"/>
+										</div>
+										
+										<div class="col-md-6 fv-row">
+											<label class="required fs-6 fw-semibold mb-2" for="department_id">Department</label>
+											<select aria-label="Select a department" data-control="select2"  data-placeholder="Select a department"  id="department_id" name="department_id" class="form-select form-select-solid fw-bold">
+												<option value="">Select a department</option>
+												@foreach($departments as $department)
+													<option value="{{ $department->id }}" {{ old('department_id') == $department->name ?'selected' :'' }}> {{ $department->name }} </option>
+												@endforeach
+												
+											</select>
+										</div>
+							
+										<div class="col-md-6 fv-row">
+											<label class="required fs-6 fw-semibold mb-2" for="type_id">Type</label>
+											<select aria-label="Select a ticket type" data-control="select2"  data-placeholder="Select a ticket type"  id="type_id" name="type_id" class="form-select form-select-solid fw-bold">
+												<option value="">Select a ticket type</option>
+												@foreach($types as $type)
+													<option value="{{ $type->id }}" {{ old('type_id') == $type->name ?'selected' :'' }}> {{ $type->name }} </option>
+												@endforeach
+											</select>
+										</div>
+							
+
+										<div class="col-md-6 fv-row">
+											<label class="required fs-6 fw-semibold mb-2" for="category_id">Category</label>
+											<select aria-label="Select a type" data-control="select2"  data-placeholder="Select a category"  id="category_id" name="category_id" class="form-select form-select-solid fw-bold">
+												<option value="">Select a category</option>
+												@foreach($categories as $category)
+													<option value="{{ $category->id }}" {{ old('category') == $category->name ?'selected' :'' }}> {{ $category->name }} </option>
+												@endforeach
+												
+											</select>
+										</div>
+								
+										<div class="col-md-6 fv-row">
+											<label for="attachment" class="fs-6 fw-semibold mb-2">Attachments</label>
+											<input class="form-control form-control form-control-solid" type="file" name="files[]" id="attachment" multiple />
+										</div>
+										
+										<div class="col-md-6 fv-row">
+											<label for="details" class="required fs-6 fw-semibold mb-2">Request Details</label>
+											<textarea class="form-control form-control form-control-solid" name="details" id="details" data-kt-autosize="true"></textarea>
+										</div>
+							
+									</div>
+									
+								</div>
+								<!--end::Heading-->
+			
 							</div>
-							<!--end::Heading-->
-							<!--begin::Tabs wrapper-->
-							<div class="d-flex flex-center mb-5 mb-lg-15">
-								<!--begin::Tabs-->
-								<ul class="nav border-transparent flex-center fs-5 fw-bold">
-									<li class="nav-item">
-										<a class="nav-link text-gray-500 text-active-primary px-3 px-lg-6 active" href="#" data-bs-toggle="tab" data-bs-target="#kt_landing_projects_latest">Latest</a>
-									</li>
-									<li class="nav-item">
-										<a class="nav-link text-gray-500 text-active-primary px-3 px-lg-6" href="#" data-bs-toggle="tab" data-bs-target="#kt_landing_projects_web_design">Web Design</a>
-									</li>
-									<li class="nav-item">
-										<a class="nav-link text-gray-500 text-active-primary px-3 px-lg-6" href="#" data-bs-toggle="tab" data-bs-target="#kt_landing_projects_mobile_apps">Mobile Apps</a>
-									</li>
-									<li class="nav-item">
-										<a class="nav-link text-gray-500 text-active-primary px-3 px-lg-6" href="#" data-bs-toggle="tab" data-bs-target="#kt_landing_projects_development">Development</a>
-									</li>
-								</ul>
-								<!--end::Tabs-->
+							<!--end::Card body-->
+							
+							<div class="card-footer d-flex justify-content-end py-6 px-9">
+								<button type="submit" id="kt_modal_create_front_ticket_submit" class="btn btn-primary">
+									<span class="indicator-label">Submit</span>
+									<span class="indicator-progress">Please wait...
+									<span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
+								</button>
 							</div>
-							<!--end::Tabs wrapper-->
-							<!--begin::Tabs content-->
-							<div class="tab-content">
-								<!--begin::Tab pane-->
-								<div class="tab-pane fade show active" id="kt_landing_projects_latest">
-									<!--begin::Row-->
-									<div class="row g-10">
-										<!--begin::Col-->
-										<div class="col-lg-6">
-											<!--begin::Item-->
-											<a class="d-block card-rounded overlay h-lg-100" data-fslightbox="lightbox-projects" href="assets/media/stock/600x600/img-23.jpg">
-												<!--begin::Image-->
-												<div class="overlay-wrapper bgi-no-repeat bgi-position-center bgi-size-cover card-rounded h-lg-100 min-h-250px" style="background-image:url('assets/media/stock/600x600/img-23.jpg')"></div>
-												<!--end::Image-->
-												<!--begin::Action-->
-												<div class="overlay-layer card-rounded bg-dark bg-opacity-25">
-													<i class="bi bi-eye-fill fs-3x text-white"></i>
-												</div>
-												<!--end::Action-->
-											</a>
-											<!--end::Item-->
-										</div>
-										<!--end::Col-->
-										<!--begin::Col-->
-										<div class="col-lg-6">
-											<!--begin::Row-->
-											<div class="row g-10 mb-10">
-												<!--begin::Col-->
-												<div class="col-lg-6">
-													<!--begin::Item-->
-													<a class="d-block card-rounded overlay" data-fslightbox="lightbox-projects" href="assets/media/stock/600x600/img-22.jpg">
-														<!--begin::Image-->
-														<div class="overlay-wrapper bgi-no-repeat bgi-position-center bgi-size-cover card-rounded h-250px" style="background-image:url('assets/media/stock/600x600/img-22.jpg')"></div>
-														<!--end::Image-->
-														<!--begin::Action-->
-														<div class="overlay-layer card-rounded bg-dark bg-opacity-25">
-															<i class="bi bi-eye-fill fs-3x text-white"></i>
-														</div>
-														<!--end::Action-->
-													</a>
-													<!--end::Item-->
-												</div>
-												<!--end::Col-->
-												<!--begin::Col-->
-												<div class="col-lg-6">
-													<!--begin::Item-->
-													<a class="d-block card-rounded overlay" data-fslightbox="lightbox-projects" href="assets/media/stock/600x600/img-21.jpg">
-														<!--begin::Image-->
-														<div class="overlay-wrapper bgi-no-repeat bgi-position-center bgi-size-cover card-rounded h-250px" style="background-image:url('assets/media/stock/600x600/img-21.jpg')"></div>
-														<!--end::Image-->
-														<!--begin::Action-->
-														<div class="overlay-layer card-rounded bg-dark bg-opacity-25">
-															<i class="bi bi-eye-fill fs-3x text-white"></i>
-														</div>
-														<!--end::Action-->
-													</a>
-													<!--end::Item-->
-												</div>
-												<!--end::Col-->
-											</div>
-											<!--end::Row-->
-											<!--begin::Item-->
-											<a class="d-block card-rounded overlay" data-fslightbox="lightbox-projects" href="assets/media/stock/600x400/img-20.jpg">
-												<!--begin::Image-->
-												<div class="overlay-wrapper bgi-no-repeat bgi-position-center bgi-size-cover card-rounded h-250px" style="background-image:url('assets/media/stock/600x600/img-20.jpg')"></div>
-												<!--end::Image-->
-												<!--begin::Action-->
-												<div class="overlay-layer card-rounded bg-dark bg-opacity-25">
-													<i class="bi bi-eye-fill fs-3x text-white"></i>
-												</div>
-												<!--end::Action-->
-											</a>
-											<!--end::Item-->
-										</div>
-										<!--end::Col-->
-									</div>
-									<!--end::Row-->
-								</div>
-								<!--end::Tab pane-->
-								<!--begin::Tab pane-->
-								<div class="tab-pane fade" id="kt_landing_projects_web_design">
-									<!--begin::Row-->
-									<div class="row g-10">
-										<!--begin::Col-->
-										<div class="col-lg-6">
-											<!--begin::Item-->
-											<a class="d-block card-rounded overlay h-lg-100" data-fslightbox="lightbox-projects" href="assets/media/stock/600x600/img-11.jpg">
-												<!--begin::Image-->
-												<div class="overlay-wrapper bgi-no-repeat bgi-position-center bgi-size-cover card-rounded h-lg-100 min-h-250px" style="background-image:url('assets/media/stock/600x600/img-11.jpg')"></div>
-												<!--end::Image-->
-												<!--begin::Action-->
-												<div class="overlay-layer card-rounded bg-dark bg-opacity-25">
-													<i class="bi bi-eye-fill fs-3x text-white"></i>
-												</div>
-												<!--end::Action-->
-											</a>
-											<!--end::Item-->
-										</div>
-										<!--end::Col-->
-										<!--begin::Col-->
-										<div class="col-lg-6">
-											<!--begin::Row-->
-											<div class="row g-10 mb-10">
-												<!--begin::Col-->
-												<div class="col-lg-6">
-													<!--begin::Item-->
-													<a class="d-block card-rounded overlay" data-fslightbox="lightbox-projects" href="assets/media/stock/600x600/img-12.jpg">
-														<!--begin::Image-->
-														<div class="overlay-wrapper bgi-no-repeat bgi-position-center bgi-size-cover card-rounded h-250px" style="background-image:url('assets/media/stock/600x600/img-12.jpg')"></div>
-														<!--end::Image-->
-														<!--begin::Action-->
-														<div class="overlay-layer card-rounded bg-dark bg-opacity-25">
-															<i class="bi bi-eye-fill fs-3x text-white"></i>
-														</div>
-														<!--end::Action-->
-													</a>
-													<!--end::Item-->
-												</div>
-												<!--end::Col-->
-												<!--begin::Col-->
-												<div class="col-lg-6">
-													<!--begin::Item-->
-													<a class="d-block card-rounded overlay" data-fslightbox="lightbox-projects" href="assets/media/stock/600x600/img-21.jpg">
-														<!--begin::Image-->
-														<div class="overlay-wrapper bgi-no-repeat bgi-position-center bgi-size-cover card-rounded h-250px" style="background-image:url('assets/media/stock/600x600/img-21.jpg')"></div>
-														<!--end::Image-->
-														<!--begin::Action-->
-														<div class="overlay-layer card-rounded bg-dark bg-opacity-25">
-															<i class="bi bi-eye-fill fs-3x text-white"></i>
-														</div>
-														<!--end::Action-->
-													</a>
-													<!--end::Item-->
-												</div>
-												<!--end::Col-->
-											</div>
-											<!--end::Row-->
-											<!--begin::Item-->
-											<a class="d-block card-rounded overlay" data-fslightbox="lightbox-projects" href="assets/media/stock/600x400/img-20.jpg">
-												<!--begin::Image-->
-												<div class="overlay-wrapper bgi-no-repeat bgi-position-center bgi-size-cover card-rounded h-250px" style="background-image:url('assets/media/stock/600x600/img-20.jpg')"></div>
-												<!--end::Image-->
-												<!--begin::Action-->
-												<div class="overlay-layer card-rounded bg-dark bg-opacity-25">
-													<i class="bi bi-eye-fill fs-3x text-white"></i>
-												</div>
-												<!--end::Action-->
-											</a>
-											<!--end::Item-->
-										</div>
-										<!--end::Col-->
-									</div>
-									<!--end::Row-->
-								</div>
-								<!--end::Tab pane-->
-								<!--begin::Tab pane-->
-								<div class="tab-pane fade" id="kt_landing_projects_mobile_apps">
-									<!--begin::Row-->
-									<div class="row g-10">
-										<!--begin::Col-->
-										<div class="col-lg-6">
-											<!--begin::Row-->
-											<div class="row g-10 mb-10">
-												<!--begin::Col-->
-												<div class="col-lg-6">
-													<!--begin::Item-->
-													<a class="d-block card-rounded overlay" data-fslightbox="lightbox-projects" href="assets/media/stock/600x600/img-16.jpg">
-														<!--begin::Image-->
-														<div class="overlay-wrapper bgi-no-repeat bgi-position-center bgi-size-cover card-rounded h-250px" style="background-image:url('assets/media/stock/600x600/img-16.jpg')"></div>
-														<!--end::Image-->
-														<!--begin::Action-->
-														<div class="overlay-layer card-rounded bg-dark bg-opacity-25">
-															<i class="bi bi-eye-fill fs-3x text-white"></i>
-														</div>
-														<!--end::Action-->
-													</a>
-													<!--end::Item-->
-												</div>
-												<!--end::Col-->
-												<!--begin::Col-->
-												<div class="col-lg-6">
-													<!--begin::Item-->
-													<a class="d-block card-rounded overlay" data-fslightbox="lightbox-projects" href="assets/media/stock/600x600/img-12.jpg">
-														<!--begin::Image-->
-														<div class="overlay-wrapper bgi-no-repeat bgi-position-center bgi-size-cover card-rounded h-250px" style="background-image:url('assets/media/stock/600x600/img-12.jpg')"></div>
-														<!--end::Image-->
-														<!--begin::Action-->
-														<div class="overlay-layer card-rounded bg-dark bg-opacity-25">
-															<i class="bi bi-eye-fill fs-3x text-white"></i>
-														</div>
-														<!--end::Action-->
-													</a>
-													<!--end::Item-->
-												</div>
-												<!--end::Col-->
-											</div>
-											<!--end::Row-->
-											<!--begin::Item-->
-											<a class="d-block card-rounded overlay" data-fslightbox="lightbox-projects" href="assets/media/stock/600x400/img-15.jpg">
-												<!--begin::Image-->
-												<div class="overlay-wrapper bgi-no-repeat bgi-position-center bgi-size-cover card-rounded h-250px" style="background-image:url('assets/media/stock/600x600/img-15.jpg')"></div>
-												<!--end::Image-->
-												<!--begin::Action-->
-												<div class="overlay-layer card-rounded bg-dark bg-opacity-25">
-													<i class="bi bi-eye-fill fs-3x text-white"></i>
-												</div>
-												<!--end::Action-->
-											</a>
-											<!--end::Item-->
-										</div>
-										<!--end::Col-->
-										<!--begin::Col-->
-										<div class="col-lg-6">
-											<!--begin::Item-->
-											<a class="d-block card-rounded overlay h-lg-100" data-fslightbox="lightbox-projects" href="assets/media/stock/600x600/img-23.jpg">
-												<!--begin::Image-->
-												<div class="overlay-wrapper bgi-no-repeat bgi-position-center bgi-size-cover card-rounded h-lg-100 min-h-250px" style="background-image:url('assets/media/stock/600x600/img-23.jpg')"></div>
-												<!--end::Image-->
-												<!--begin::Action-->
-												<div class="overlay-layer card-rounded bg-dark bg-opacity-25">
-													<i class="bi bi-eye-fill fs-3x text-white"></i>
-												</div>
-												<!--end::Action-->
-											</a>
-											<!--end::Item-->
-										</div>
-										<!--end::Col-->
-									</div>
-									<!--end::Row-->
-								</div>
-								<!--end::Tab pane-->
-								<!--begin::Tab pane-->
-								<div class="tab-pane fade" id="kt_landing_projects_development">
-									<!--begin::Row-->
-									<div class="row g-10">
-										<!--begin::Col-->
-										<div class="col-lg-6">
-											<!--begin::Item-->
-											<a class="d-block card-rounded overlay h-lg-100" data-fslightbox="lightbox-projects" href="assets/media/stock/600x600/img-15.jpg">
-												<!--begin::Image-->
-												<div class="overlay-wrapper bgi-no-repeat bgi-position-center bgi-size-cover card-rounded h-lg-100 min-h-250px" style="background-image:url('assets/media/stock/600x600/img-15.jpg')"></div>
-												<!--end::Image-->
-												<!--begin::Action-->
-												<div class="overlay-layer card-rounded bg-dark bg-opacity-25">
-													<i class="bi bi-eye-fill fs-3x text-white"></i>
-												</div>
-												<!--end::Action-->
-											</a>
-											<!--end::Item-->
-										</div>
-										<!--end::Col-->
-										<!--begin::Col-->
-										<div class="col-lg-6">
-											<!--begin::Row-->
-											<div class="row g-10 mb-10">
-												<!--begin::Col-->
-												<div class="col-lg-6">
-													<!--begin::Item-->
-													<a class="d-block card-rounded overlay" data-fslightbox="lightbox-projects" href="assets/media/stock/600x600/img-22.jpg">
-														<!--begin::Image-->
-														<div class="overlay-wrapper bgi-no-repeat bgi-position-center bgi-size-cover card-rounded h-250px" style="background-image:url('assets/media/stock/600x600/img-22.jpg')"></div>
-														<!--end::Image-->
-														<!--begin::Action-->
-														<div class="overlay-layer card-rounded bg-dark bg-opacity-25">
-															<i class="bi bi-eye-fill fs-3x text-white"></i>
-														</div>
-														<!--end::Action-->
-													</a>
-													<!--end::Item-->
-												</div>
-												<!--end::Col-->
-												<!--begin::Col-->
-												<div class="col-lg-6">
-													<!--begin::Item-->
-													<a class="d-block card-rounded overlay" data-fslightbox="lightbox-projects" href="assets/media/stock/600x600/img-21.jpg">
-														<!--begin::Image-->
-														<div class="overlay-wrapper bgi-no-repeat bgi-position-center bgi-size-cover card-rounded h-250px" style="background-image:url('assets/media/stock/600x600/img-21.jpg')"></div>
-														<!--end::Image-->
-														<!--begin::Action-->
-														<div class="overlay-layer card-rounded bg-dark bg-opacity-25">
-															<i class="bi bi-eye-fill fs-3x text-white"></i>
-														</div>
-														<!--end::Action-->
-													</a>
-													<!--end::Item-->
-												</div>
-												<!--end::Col-->
-											</div>
-											<!--end::Row-->
-											<!--begin::Item-->
-											<a class="d-block card-rounded overlay" data-fslightbox="lightbox-projects" href="assets/media/stock/600x400/img-14.jpg">
-												<!--begin::Image-->
-												<div class="overlay-wrapper bgi-no-repeat bgi-position-center bgi-size-cover card-rounded h-250px" style="background-image:url('assets/media/stock/600x600/img-14.jpg')"></div>
-												<!--end::Image-->
-												<!--begin::Action-->
-												<div class="overlay-layer card-rounded bg-dark bg-opacity-25">
-													<i class="bi bi-eye-fill fs-3x text-white"></i>
-												</div>
-												<!--end::Action-->
-											</a>
-											<!--end::Item-->
-										</div>
-										<!--end::Col-->
-									</div>
-									<!--end::Row-->
-								</div>
-								<!--end::Tab pane-->
-							</div>
-							<!--end::Tabs content-->
+							
 						</div>
-						<!--end::Card body-->
-					</div>
-					<!--end::Card-->
+						<!--end::Card-->
+					</form> 
 				</div>
 				<!--end::Container-->
 			</div>
@@ -619,21 +457,11 @@
 									<!--end::Title-->
 									<!--begin::Text-->
 									<span class="fw-normal fs-4 text-gray-700">Email us to
-									<a href="https://keenthemes.com/support" class="text-white opacity-50 text-hover-primary">support@keenthemes.com</a></span>
+									<a href="" class="text-white opacity-50 text-hover-primary">support@helpdesk.com</a></span>
 									<!--end::Text-->
 								</div>
 								<!--end::Block-->
-								<!--begin::Block-->
-								<div class="rounded landing-dark-border p-9">
-									<!--begin::Title-->
-									<h2 class="text-white">How About a Custom Project?</h2>
-									<!--end::Title-->
-									<!--begin::Text-->
-									<span class="fw-normal fs-4 text-gray-700">Use Our Custom Development Service.
-									<a href="../../demo1/dist/pages/user-profile/overview.html" class="text-white opacity-50 text-hover-primary">Click to Get a Quote</a></span>
-									<!--end::Text-->
-								</div>
-								<!--end::Block-->
+								
 							</div>
 							<!--end::Col-->
 							<!--begin::Col-->
@@ -643,25 +471,16 @@
 									<!--begin::Links-->
 									<div class="d-flex fw-semibold flex-column me-20">
 										<!--begin::Subtitle-->
-										<h4 class="fw-bold text-gray-400 mb-6">More for Metronic</h4>
+										<h4 class="fw-bold text-gray-400 mb-6">More Usefull Links</h4>
 										<!--end::Subtitle-->
 										<!--begin::Link-->
-										<a href="https://keenthemes.com/faqs" class="text-white opacity-50 text-hover-primary fs-5 mb-6">FAQ</a>
+										<a href="" class="text-white opacity-50 text-hover-primary fs-5 mb-6">Terms of Services</a>
 										<!--end::Link-->
 										<!--begin::Link-->
-										<a href="https://preview.keenthemes.com/html/metronic/docs" class="text-white opacity-50 text-hover-primary fs-5 mb-6">Documentaions</a>
+										<a href="" class="text-white opacity-50 text-hover-primary fs-5 mb-6">Privacy Policy</a>
 										<!--end::Link-->
 										<!--begin::Link-->
-										<a href="https://www.youtube.com/c/KeenThemesTuts/videos" class="text-white opacity-50 text-hover-primary fs-5 mb-6">Video Tuts</a>
-										<!--end::Link-->
-										<!--begin::Link-->
-										<a href="https://preview.keenthemes.com/html/metronic/docs/getting-started/changelog" class="text-white opacity-50 text-hover-primary fs-5 mb-6">Changelog</a>
-										<!--end::Link-->
-										<!--begin::Link-->
-										<a href="https://devs.keenthemes.com/" class="text-white opacity-50 text-hover-primary fs-5 mb-6">Support Forum</a>
-										<!--end::Link-->
-										<!--begin::Link-->
-										<a href="https://keenthemes.com/blog" class="text-white opacity-50 text-hover-primary fs-5">Blog</a>
+										<a href="" class="text-white opacity-50 text-hover-primary fs-5 mb-6">Knowledge Base</a>
 										<!--end::Link-->
 									</div>
 									<!--end::Links-->
@@ -671,31 +490,20 @@
 										<h4 class="fw-bold text-gray-400 mb-6">Stay Connected</h4>
 										<!--end::Subtitle-->
 										<!--begin::Link-->
-										<a href="https://www.facebook.com/keenthemes" class="mb-6">
+										<a href="" class="mb-6">
 											<img src="{{ asset('assets/media/svg/brand-logos/facebook-4.svg') }}" class="h-20px me-2" alt="" />
 											<span class="text-white opacity-50 text-hover-primary fs-5 mb-6">Facebook</span>
 										</a>
 										<!--end::Link-->
+	
 										<!--begin::Link-->
-										<a href="https://github.com/KeenthemesHub" class="mb-6">
-											<img src="{{ asset('assets/media/svg/brand-logos/github.svg') }}" class="h-20px me-2" alt="" />
-											<span class="text-white opacity-50 text-hover-primary fs-5 mb-6">Github</span>
-										</a>
-										<!--end::Link-->
-										<!--begin::Link-->
-										<a href="https://twitter.com/keenthemes" class="mb-6">
+										<a href="" class="mb-6">
 											<img src="{{ asset('assets/media/svg/brand-logos/twitter.svg') }}" class="h-20px me-2" alt="" />
 											<span class="text-white opacity-50 text-hover-primary fs-5 mb-6">Twitter</span>
 										</a>
 										<!--end::Link-->
 										<!--begin::Link-->
-										<a href="https://dribbble.com/keenthemes" class="mb-6">
-											<img src="{{ asset('assets/media/svg/brand-logos/dribbble-icon-1.svg') }}" class="h-20px me-2" alt="" />
-											<span class="text-white opacity-50 text-hover-primary fs-5 mb-6">Dribbble</span>
-										</a>
-										<!--end::Link-->
-										<!--begin::Link-->
-										<a href="https://www.instagram.com/keenthemes" class="mb-6">
+										<a href="" class="mb-6">
 											<img src="{{ asset('assets/media/svg/brand-logos/instagram-2-1.svg') }}" class="h-20px me-2" alt="" />
 											<span class="text-white opacity-50 text-hover-primary fs-5 mb-6">Instagram</span>
 										</a>
@@ -720,28 +528,15 @@
 							<!--begin::Copyright-->
 							<div class="d-flex align-items-center order-2 order-md-1">
 								<!--begin::Logo-->
-								<a href="../../demo1/dist/landing.html">
-									<img alt="Logo" src="{{ asset('assets/media/logos/landing.svg') }}" class="h-15px h-md-20px" />
+								<a href="">
+									<img alt="Logo" src="{{ asset('assets/media/logos/logo.png') }}" class="h-15px h-md-20px" />
 								</a>
 								<!--end::Logo image-->
 								<!--begin::Logo image-->
-								<span class="mx-5 fs-6 fw-semibold text-gray-600 pt-1" href="https://keenthemes.com">&copy; 2022 Keenthemes Inc.</span>
+								<span class="mx-5 fs-6 fw-semibold text-gray-600 pt-1" href="https://aaqoo.com/">&copy; {{ date("Y") }} Helpdesk Developed by aaqoo</span>
 								<!--end::Logo image-->
 							</div>
 							<!--end::Copyright-->
-							<!--begin::Menu-->
-							<ul class="menu menu-gray-600 menu-hover-primary fw-semibold fs-6 fs-md-5 order-1 mb-5 mb-md-0">
-								<li class="menu-item">
-									<a href="https://keenthemes.com" target="_blank" class="menu-link px-2">About</a>
-								</li>
-								<li class="menu-item mx-5">
-									<a href="https://devs.keenthemes.com" target="_blank" class="menu-link px-2">Support</a>
-								</li>
-								<li class="menu-item">
-									<a href="" target="_blank" class="menu-link px-2">Purchase</a>
-								</li>
-							</ul>
-							<!--end::Menu-->
 						</div>
 						<!--end::Wrapper-->
 					</div>
@@ -793,7 +588,204 @@
 		<script src="{{ asset('assets/plugins/custom/typedjs/typedjs.bundle.js') }}"></script>
 		
 		<script src="{{ asset('assets/js/custom/landing.js') }}"></script>
-		<script src="{{ asset('assets/js/custom/pages/pricing/general.js') }}"></script>
+		
+		@if (isset($errors) && $errors->any())
+			@foreach ($errors->all() as $error)
+				<script>
+					Swal.fire({
+					text: `{{ $error }}`,
+					icon: "error",
+					buttonsStyling: false,
+					confirmButtonText: "Ok, got it!",
+					customClass: {
+						confirmButton: "btn fw-bold btn-primary",
+					}
+				})
+				</script>
+			@endforeach
+		@endif
+
+
+
+		@if (Session::has('warning'))
+			<script>
+				Swal.fire({
+					text: `{!!Session::get("warning")!!}`,
+					icon: "error",
+					buttonsStyling: false,
+					confirmButtonText: "Ok, got it!",
+					customClass: {
+						confirmButton: "btn fw-bold btn-primary",
+					}
+				})
+			</script>
+		@endif
+
+		@if (Session::has('success'))
+			<script>
+				Swal.fire({
+					text: `{!!Session::get("success")!!}`,
+					icon: "success",
+					buttonsStyling: false,
+					confirmButtonText: "Ok, got it!",
+					customClass: {
+						confirmButton: "btn fw-bold btn-primary",
+					}
+				});
+			</script>
+		@endif
+
+		
+		<script>
+		// Class definition
+		var KTModaluserAdd = function () {
+			var submitButton;
+			var cancelButton;
+			var validator;
+			var form;
+			// Init form inputs
+			var handleForm = function () {
+				
+				validator = FormValidation.formValidation(
+					form,
+					{
+						fields: {
+							first_name: {
+								validators: {
+									notEmpty: {
+										message: 'The first name is required'
+									}
+								}
+							},
+							last_name: {
+								validators: {
+									notEmpty: {
+										message: 'The last name is required'
+									}
+								}
+							},
+							email: {
+								validators: {
+									notEmpty: {
+										message: "The email is required"
+									},
+									emailAddress: {
+										message: 'The email is not a valid email address'
+									}
+								}
+							},
+							department_id: {
+								validators: {
+									notEmpty: {
+										message: 'The department is required'
+									}
+								}
+							},
+							phone: {
+								validators: {
+									notEmpty: {
+										message: "The phone number is required"
+									},
+									stringLength: {
+										min: 11,
+										message: "The phone number must be more than 7 characters"
+									},
+									regexp: {
+										message: "The phone number can only consist of number",
+										regexp: /^[0-9]*$/
+									},
+								}
+							},
+							type_id: {
+								validators: {
+									notEmpty: {
+										message: 'The type is required'
+									}
+								}
+							},
+							subject: {
+								validators: {
+									notEmpty: {
+										message: 'The subject is required'
+									}
+								}
+							},
+							category_id: {
+								validators: {
+									notEmpty: {
+										message: 'The category is required'
+									}
+								}
+							},
+							details: {
+								validators: {
+									notEmpty: {
+										message: 'The detail is required'
+									}
+								}
+							}
+						},
+						plugins: {
+							trigger: new FormValidation.plugins.Trigger(),
+							bootstrap: new FormValidation.plugins.Bootstrap5({
+								rowSelector: '.fv-row',
+								eleInvalidClass: '',
+								eleValidClass: ''
+							})
+						}
+					}
+				);
+
+				// Action buttons
+				$(submitButton).on('click', function (e) {
+					e.preventDefault();
+
+					// Validate form before submit
+					if (validator) {
+						validator.validate().then(function (status) {
+							console.log('validated!');
+
+							if (status == 'Valid') {
+								submitButton.setAttribute('data-kt-indicator', 'on');
+
+								// Disable submit button whilst loading
+								submitButton.disabled = true;
+								form.submit(); // Submit form
+
+													
+							} else {
+								Swal.fire({
+									text: "Sorry, looks like there are some errors detected, please try again.",
+									icon: "error",
+									buttonsStyling: false,
+									confirmButtonText: "Ok, got it!",
+									customClass: {
+										confirmButton: "btn btn-primary"
+									}
+								});
+							}
+						});
+					}
+				});
+			}
+
+			return {
+				// Public functions
+				init: function () {
+					// Elements
+					form = document.querySelector('#kt_modal_create_front_ticket_form');
+					submitButton = form.querySelector('#kt_modal_create_front_ticket_submit');
+					handleForm();
+				}
+			};
+		}();
+
+		// On document ready
+		KTUtil.onDOMContentLoaded(function () {
+			KTModaluserAdd.init();
+		});
+
+		</script>
 		
 	</body>
 </html>

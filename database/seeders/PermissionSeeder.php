@@ -91,9 +91,7 @@ class PermissionSeeder extends Seeder
         Permission::on('mysql')->create(['name'  => 'add-evaluation']);
         Permission::on('mysql')->create(['name'  => 'edit-evaluation']);
         Permission::on('mysql')->create(['name'  => 'view-evaluation']);
-        Permission::on('mysql')->create(['name'  => 'delete-evaluation']);
-        
-        Permission::on('mysql')->create(['name'  => 'add-pusher']);  
+        Permission::on('mysql')->create(['name'  => 'delete-evaluation']); 
 
     }
 }

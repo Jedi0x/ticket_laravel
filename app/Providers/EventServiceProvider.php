@@ -2,10 +2,18 @@
 
 namespace App\Providers;
 
+use App\Events\AssignedUser;
+use App\Events\CustomerCreatedFromDashboard;
+use App\Events\TicketCreate;
+use App\Events\TicketUpdate;
+use App\Listeners\SendAssignedUser;
+use App\Listeners\SendCreateTicket;
+use App\Listeners\SendCustomerCreatedFromDashboard;
+use App\Listeners\SendUpdateTicket;
+use Illuminate\Support\Facades\Event;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
-use Illuminate\Support\Facades\Event;
 
 class EventServiceProvider extends ServiceProvider
 {
@@ -18,6 +26,18 @@ class EventServiceProvider extends ServiceProvider
         Registered::class => [
             SendEmailVerificationNotification::class,
         ],
+        TicketCreate::class => [
+            SendCreateTicket::class,
+        ],
+        TicketUpdate::class => [
+            SendUpdateTicket::class,
+        ],
+        AssignedUser::class => [
+            SendAssignedUser::class,
+        ],
+        CustomerCreatedFromDashboard::class => [
+            SendCustomerCreatedFromDashboard::class,
+        ]
     ];
 
     /**

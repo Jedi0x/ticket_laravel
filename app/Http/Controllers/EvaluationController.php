@@ -155,7 +155,7 @@ class EvaluationController extends Controller
      */
     public function update(Request $request, Evaluation $evaluation)
     {
-         $request->validate([
+        $request->validate([
             'type' => 'required|min:2|max:255',
             'question' => 'required'
         ]);
@@ -178,7 +178,6 @@ class EvaluationController extends Controller
             }
         }
         catch (Exception $e){
-            dd($e);
             return redirect()->route('evaluation.index')->with('warning', 'Something Went Wrong! Please Try Again Later');
         }
     }

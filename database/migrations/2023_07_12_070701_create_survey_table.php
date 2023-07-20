@@ -18,10 +18,10 @@ return new class extends Migration
             $table->increments('id');
             $table->string('uid', 30)->nullable()->index();
             $table->integer('user_id')->nullable()->index();
-            $table->string('email')->nullable();
             $table->string('created_by', 50)->nullable()->index();
+            $table->integer('call_type')->nullable()->index();
             $table->integer('assigned_to')->nullable()->index();
-            $table->text('details');
+            $table->string('subject',191)->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

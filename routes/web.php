@@ -5,7 +5,6 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\CustomerController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\HomeController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DepartmentController;
@@ -18,6 +17,8 @@ use App\Http\Controllers\PrioritiesController;
 use App\Http\Controllers\TicketController;
 use App\Http\Controllers\TypeController;
 use App\Http\Controllers\EmailController;
+use App\Http\Controllers\FrontController;
+use App\Http\Controllers\SurveyController;
 
 /*
 |--------------------------------------------------------------------------
@@ -40,7 +41,8 @@ Route::post('login', [LoginController::class,'login'])->name("login");
 Route::get('logout', [LoginController::class,'logout'])->name("logout");
 
 
-Route::get('/',[HomeController::class,'index'])->name('home');
+Route::get('/',[FrontController::class,'index'])->name('home');
+Route::post('/create_ticket',[FrontController::class,'create_ticket'])->name('front.create_ticket');
 
 Route::group(['middleware' => ['auth']], function () {
     
@@ -103,5 +105,9 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('fetch_ticket',[TicketController::class,'fetch_ticket_ajax'])->name('ticket.fetch');
     Route::post('delete_ticket',[TicketController::class,'delete_ajax'])->name('ticket.delete-ajax');
     Route::post('remove_attachment_ticket',[TicketController::class,'remove_attachment'])->name('ticket.delete-attachment');
+    
+    Route::resource('survey', SurveyController::class);
+    Route::post('fetch_survey',[SurveyController::class,'fetch_survey_ajax'])->name('survey.fetch');
+    Route::post('delete_survey',[SurveyController::class,'delete_ajax'])->name('survey.delete-ajax');
 });
 

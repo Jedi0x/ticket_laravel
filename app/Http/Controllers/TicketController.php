@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\AssignedUser;
 use Exception;
 use App\Models\Type;
 use App\Models\User;
@@ -9,14 +10,23 @@ use App\Models\Status;
 use App\Models\Ticket;
 use App\Models\Category;
 use App\Models\Priority;
-use Illuminate\Support\Facades\File;
 use App\Models\Attachment;
 use App\Models\Department;
+use App\Events\TicketCreate;
+use App\Events\TicketUpdate;
 use Illuminate\Http\Request;
 use App\Http\Requests\TicketRequest;
+use Illuminate\Support\Facades\File;
 
 class TicketController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('permission:edit-ticket', ['only' => ['edit', 'update']]);
+        $this->middleware('permission:add-ticket', ['only' => ['create', 'store']]);
+        $this->middleware('permission:delete-ticket', ['only' => ['destroy', 'delete_ajax']]);
+    }
+    
     /**
      * Display a listing of the resource.
      *
@@ -33,7 +43,7 @@ class TicketController extends Controller
      * @return \Illuminate\Http\Response
      */
      
-     public function fetch_ticket_ajax(Request $request)
+    public function fetch_ticket_ajax(Request $request)
     {
         $columns = array(
             0 => 'uid',
@@ -161,6 +171,12 @@ class TicketController extends Controller
                 $ticket->save();
                 
                 // add event when ticket created
+                event(new TicketCreate($ticket));
+                
+                // add event when ticket is assigned
+                if(!empty($ticket->assigned_to)){
+                    event(new AssignedUser($ticket));
+                }
                 
                 return redirect()->route('ticket.index')->with('success','Ticket has been added successfully');
             }else{
@@ -215,6 +231,21 @@ class TicketController extends Controller
     public function update(Request $request, Ticket $ticket)
     {      
         try{
+            
+            $closed_status = Status::where('slug', 'like', '%close%')->first();
+
+            $update_message = null;
+            if($closed_status && ($ticket->status_id != $closed_status->id) && $request->status_id == $closed_status->id){
+                $update_message = 'The ticket has been closed.';
+            }elseif($ticket->status_id != $request->status_id){
+                $update_message = 'The status has been changed for this ticket.';
+            }
+            if($ticket->priority_id != $request->priority_id){
+                $update_message = 'The priority has been changed for this ticket.';
+            }
+            
+            $assigned = (!empty($request->assigned_to) && ($ticket->assigned_to != $request->assigned_to))??false;
+        
             $ticket->user_id = $request->user_id;
             $ticket->priority_id = $request->priority_id;
             $ticket->status_id = $request->status_id;
@@ -225,6 +256,16 @@ class TicketController extends Controller
             $ticket->subject = $request->subject;
             $ticket->details = $request->details;
             if( $ticket->update() ){
+                
+                if(!empty($update_message)){
+                    event(new TicketUpdate($ticket,$update_message));
+                }
+                
+                if($assigned){
+                    event(new AssignedUser($ticket));
+                }
+                
+        
                 if($request->hasFile('files')){
                     $files = $request->file('files');
                     foreach($files as $file){

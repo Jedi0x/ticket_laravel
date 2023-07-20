@@ -13,7 +13,7 @@ class SurveyRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,12 @@ class SurveyRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'user_id' => 'required',
+            'assigned_to' => 'required',
+            "call_type" => "required",
+            "subject" => "required",
+            "answer" => "required",
+            "score" => "required"
         ];
     }
 }
