@@ -43,6 +43,11 @@ Route::get('logout', [LoginController::class,'logout'])->name("logout");
 
 Route::get('/',[FrontController::class,'index'])->name('home');
 Route::post('/create_ticket',[FrontController::class,'create_ticket'])->name('front.create_ticket');
+Route::get('/open_ticket',[FrontController::class,'open_ticket'])->name('front.open_ticket');
+Route::get('/knowledge-base',[FrontController::class,'knowledge_base'])->name('front.knowledge-base');
+Route::get('/faq',[FrontController::class,'faq'])->name('front.faq');
+Route::get('/privacy-policy',[FrontController::class,'privacy_policy'])->name('front.privacy-policy');
+Route::get('/terms-of-service',[FrontController::class,'terms_of_service'])->name('front.terms-of-service');
 
 Route::group(['middleware' => ['auth']], function () {
     

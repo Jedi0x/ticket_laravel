@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Events\CustomerCreatedFromDashboard;
 use Exception;
 use App\Models\Type;
 use App\Models\User;
@@ -13,15 +12,64 @@ use App\Models\Department;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 use Spatie\Permission\Models\Role;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use App\Events\CustomerCreatedFromDashboard;
 
 class FrontController extends Controller
 {
     public function index(){
+        $dashboard = false;
+        if (Auth::check()) {
+            $dashboard = true;
+        }
         $departments = Department::whereNull('deleted_at')->get();
         $types = Type::whereNull('deleted_at')->get();
         $categories = Category::whereNull('deleted_at')->get();
         return view('home',get_defined_vars());
+    }
+    
+    public function knowledge_base(){
+        $dashboard = false;
+        if (Auth::check()) {
+            $dashboard = true;
+        }
+        return view('knowledge-base',get_defined_vars());
+    }
+    
+    public function faq(){
+        $dashboard = false;
+        if (Auth::check()) {
+            $dashboard = true;
+        }
+        return view('faq',get_defined_vars());
+    }
+    
+    public function privacy_policy(){
+        $dashboard = false;
+        if (Auth::check()) {
+            $dashboard = true;
+        }
+        return view('privacy-policy',get_defined_vars());
+    }
+    
+    public function terms_of_service(){
+        $dashboard = false;
+        if (Auth::check()) {
+            $dashboard = true;
+        }
+        return view('terms-of-service',get_defined_vars());
+    }
+    
+    public function open_ticket(){
+        $dashboard = false;
+        if (Auth::check()) {
+            $dashboard = true;
+        }
+        $departments = Department::whereNull('deleted_at')->get();
+        $types = Type::whereNull('deleted_at')->get();
+        $categories = Category::whereNull('deleted_at')->get();
+        return view('open_ticket',get_defined_vars());
     }
     
     public function create_ticket(Request $request){
@@ -83,6 +131,7 @@ class FrontController extends Controller
             return redirect()->route('home')->with('warning', 'Something Went Wrong! Please Try Again Later');
         }
     }
+
     
     private function genRendomPassword() {
         $alphabet = "abcdefghijklmnopqrstuwxyzABCDEFGHIJKLMNOPQRSTUWXYZ0123456789";
