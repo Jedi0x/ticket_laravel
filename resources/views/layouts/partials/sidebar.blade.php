@@ -172,7 +172,7 @@
                     <!--end:Menu item-->
                 
                     <!--begin:Menu link-->
-                    <span class="menu-link {{ (Route::is('email_template.*') || Route::is('role.*') || Route::is('permission.*') || Route::is('category.*') || Route::is('status.*') || Route::is('priority.*') || Route::is('department.*') || Route::is('type.*') || Route::is('evaluation.*')) ? 'active' : '' }}">
+                    <span class="menu-link {{ (Route::is('role.*') || Route::is('permission.*') || Route::is('category.*') || Route::is('status.*') || Route::is('priority.*') || Route::is('department.*') || Route::is('type.*') || Route::is('evaluation.*')) ? 'active' : '' }}">
                         <span class="menu-icon">
                             <span class="svg-icon svg-icon-2">
                                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -186,7 +186,7 @@
                     </span>
                     <!--end:Menu link-->
                     <!--begin:Menu sub-->
-                    <div class="menu-sub menu-sub-accordion {{ (Route::is('email_template.*') || Route::is('role.*') || Route::is('permission.*') || Route::is('category.*') || Route::is('status.*') || Route::is('priority.*') || Route::is('department.*') || Route::is('type.*') || Route::is('evaluation.*')) ? 'show' : '' }}">
+                    <div class="menu-sub menu-sub-accordion {{ (Route::is('role.*') || Route::is('permission.*') || Route::is('category.*') || Route::is('status.*') || Route::is('priority.*') || Route::is('department.*') || Route::is('type.*') || Route::is('evaluation.*')) ? 'show' : '' }}">
                         <!--begin:Menu item-->
                         <div class="menu-item">
                             <!--begin:Menu link-->
@@ -287,27 +287,10 @@
                         </div>
                         <!--end:Menu item-->
                         
-                        <!--begin:Menu item-->
-                        <div class="menu-item">
-                            <!--begin:Menu link-->
-                            <a class="menu-link {{ Route::is('email_template.*') ? 'active' : '' }}" href="{{ route('email_template.index') }}">
-
-                                <span class="menu-bullet">
-                                    <span class="bullet bullet-dot"></span>
-                                </span>
-                                <span class="menu-title">Email Templates</span>
-                            </a>
-                            <!--end:Menu link-->
-                        </div>
-                        <!--end:Menu item-->
                     </div>
                     <!--end:Menu sub-->
                 </div>
                 <!--end:Menu item-->
-
-        
-                
-
             </div>
             <!--end::Menu-->
         </div>
